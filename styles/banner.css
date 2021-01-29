@@ -1,0 +1,65 @@
+.bannerholder{
+	background: teal
+}
+.logoholder{
+	background: #1e90ff;
+}
+.backgroung-image{
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 90vh;
+	background-position: 100% 50;
+	overflow: hidden;
+}
+.overlay-content{
+	width: 70%;
+	margin-left: 15%;
+}
+.overlay-content p{
+	font-size: 24px;
+	color: #fff;
+}
+.overlay-content h2{
+	color: #1e90ff;
+}
+.overlay-content , .spanassignment, .spanexam , .spannotes{
+	font-size: 30px;
+}
+.spanassignment{
+	color: #FEC12C;
+}
+.spanexam{
+	color: #1e90ff;
+}
+.spannotes{
+	color: brown;
+}
+.main-content{
+	background: #FD4935;
+}
+ .navbar{
+ 	height: 50px;
+ 	background:  #fff;
+ 	border-bottom: 3px solid #1e90ff;
+ }
+ 
+   nav a{
+   	padding: 10px 12px ;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	text-decoration: none;
+	background: #fff;	
+	transition: .5s ease all;
+   }
+    a:hover{
+    	background: #FD4935;
+		border-bottom: 4px solid #1e90ff;
+		color: #fff;
+    }
+    .active{
+		background: #FD4935;;
+		border-bottom: 4px solid #1e90ff;
+		color: #fff;
+    }
