@@ -1,0 +1,60 @@
+.registrationform{
+		 display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  
+  justify-content: center;
+  align-items: center;
+	width: 90%;
+	margin-left: 4%;
+	font-size: 20px;
+}
+.registrationformtitle{
+	width: 100%;
+	background: #FEC12C;
+	color: brown;
+	font-weight: bold;
+	font-size: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+}
+.regform{
+	display: none;
+}
+.inputstyle{
+	min-width: 300px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.submitbutton{
+ min-width: 300px;
+ padding: 12px 10px;
+ margin: 8px 0;
+ border-radius: 10px;
+ background: #1e90ff;
+ border: none;
+ color: #fff;
+	font-size: 20px;
+}
+.submitbutton:hover{
+	font-weight: bold;
+	 cursor: pointer;
+}
+.myform{
+	background: #FD4935;
+	width: 100%
+}
+.callregform:hover{
+cursor: pointer;
+color: #fff;
+}
+.callloginform:hover{
+cursor: pointer;
+color: #fff;
+}

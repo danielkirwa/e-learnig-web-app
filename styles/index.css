@@ -70,6 +70,7 @@ color: #FD4935;
 .weekend-header{
   color: brown;
   font-size: 30px;
+  font-weight: bold;
 }
 .weekend-activitiy1{
   color: #1e90ff;
@@ -96,14 +97,15 @@ color: #FD4935;
   border-radius: 3px 25px ;
   background: #fff;
   padding: 20px;
-  width: 150px;
+   font-size: 20px;
+  font-weight: bold;
+  width: 120px;
 
 
 }
-table thead{
+.time-schedule{
   font-size: 20px;
-  color: brown;
-  background: #fff;
+  font-weight: bold;
 }
 
 .monday-schedule{
