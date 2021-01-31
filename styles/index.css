@@ -1,0 +1,155 @@
+ /* ----------------technical surport ----------------*/
+ .technicalassistant{
+ 	width: 100%;
+ 	display: flex;
+ 	font-size: 24px;
+ }
+  .technicalassistant p{
+ 	font-size: 24px;
+ 	font-style: italic;
+ }
+ .technicalassistant span{
+ 	font-size: 24px;
+ 	font-style: italic;
+ }
+.technicalassistantimage{
+ width: 50%;
+}
+.technicalassistantdescription{
+	width: 45%;
+	padding: 1%;
+
+}
+.technical1{
+color: #FD4935;
+}
+.technical2{
+color: brown;
+}
+.technical3{
+color: #FD4935;
+}
+
+/*---------------main content ------------------*/
+.content-holder{
+	width: 100%;
+	display: flex;
+}
+.content-image{
+	 display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  
+  justify-content: center;
+  align-items: center;
+   width: 50%;
+}
+.content-discription{
+	 display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  
+  justify-content: center;
+  align-items: center;
+	width: 50%;
+	font-size: 20px;
+}
+.weekend-schedule{
+  background: #FD4935;
+   width: 80%;
+   padding-left: 10%;
+   padding-right: 10%;
+   padding-top: 5%;
+   padding-bottom: 5%;
+}
+.weeked-discription{
+ background: #fff;
+}
+.weekend-header{
+  color: brown;
+  font-size: 30px;
+}
+.weekend-activitiy1{
+  color: #1e90ff;
+ font-size: 22px;
+ 
+}
+.weekend-activitiy2{
+  color: #FD4935;
+ font-size: 22px;
+}
+.schedule-holder{
+  width: 100%;
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.schedules{
+      flex: 1 1 210px; /*  Stretching: */
+    flex: 0 1 210px; /*  No stretching: */
+    margin: 5px;
+}
+.daydisplay{
+
+  border-radius: 3px 25px ;
+  background: #fff;
+  padding: 20px;
+  width: 150px;
+
+
+}
+table thead{
+  font-size: 20px;
+  color: brown;
+  background: #fff;
+}
+
+.monday-schedule{
+  margin-left: 2%;
+  background: #FD4935;
+}
+.tuesday-schedule{
+  margin-left: 2%;
+  background: #FEC12C;
+}
+.wednesday-schedule{
+  margin-left: 2%;
+  background: brown;
+}
+.thursday-schedule{
+  margin-left: 2%;
+  background: #FD4935;
+}
+.friday-schedule{
+  margin-left: 2%;
+  background: #FEC12C;
+}
+/*-------------------small screens ------------------*/
+@media (max-width: 800px){
+  .technicalassistantimage{
+ width: 100%;
+}
+.technicalassistantdescription{
+  width: 100%;
+  padding: 1%;
+
+}
+ .technicalassistant{
+  display: block;
+  font-size: 18px;
+ }
+
+.content-holder{
+  width: 100%;
+  display: block;
+}
+.content-image{
+   width: 100%;
+}
+.content-discription{
+  width: 90%;
+  font-size: 20px;
+}
+}
