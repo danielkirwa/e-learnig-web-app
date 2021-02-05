@@ -54,3 +54,24 @@
     margin: 5px;
     font-size: 20px;
 }
+ /* on smalll screens */
+@media(max-width: 850px){
+.quizinput{
+	width: 100%;
+	margin-left: 0;
+	padding: 1%;
+	border-top: 30px solid brown;
+}
+.quiztta{
+	width: 98%;
+	
+}
+.answertta{
+	width: 90%;
+
+}
+.corectanswer{
+	width: 90%;
+
+}
+}
