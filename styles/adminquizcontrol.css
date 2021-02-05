@@ -42,3 +42,15 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
+.btncontrolsholder{
+  width: 100%;
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.btncontrol{
+      flex: 1 1 210px; /*  Stretching: */
+    flex: 0 1 210px; /*  No stretching: */
+    margin: 5px;
+    font-size: 20px;
+}
