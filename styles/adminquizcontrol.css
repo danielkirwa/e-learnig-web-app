@@ -1,0 +1,44 @@
+.quizinputholder{
+  border:  4px solid #1e90ff;
+}
+.quizinput{
+	width: 80%;
+	margin-left: 9%;
+	border-top: 30px solid brown;
+}
+.quizinputtitle{
+	width: 100%;
+	background: #FEC12C;
+	color: brown;
+	font-weight: bold;
+	font-size: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.quiztta{
+	width: 90%;
+	  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.answertta{
+	width: 60%;
+	  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.corectanswer{
+	width: 60%;
+	padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
