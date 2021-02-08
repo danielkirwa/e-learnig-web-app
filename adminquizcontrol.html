@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registration form</title>
+	<title>App Control</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="styles/banner.css">
@@ -18,8 +18,8 @@
 			<br>
 				<nav>
 		<a href="#" class="active"><span><i class="fa fa-user iconz"></i></span> &nbsp;Add Quiz</a>
-		<a href="index.html"><span><i class="fa fa-home iconz"></i></span> &nbsp;Results</a>
-		<a href="index.html#schedule-section"><span><i class="fa fa-calendar iconz"></i></span> &nbsp;Schedule</a>
+		<a href="#"><span><i class="fa fa-home iconz"></i></span> &nbsp;Results</a>
+		<a href="#"><span><i class="fa fa-calendar iconz"></i></span> &nbsp;Schedule</a>
 			
 	</nav>
 		</div>
@@ -31,26 +31,26 @@
 <div class="quizinputholder">
 	 <div class="quizinput">
 	 	<div class="quizinputtitle">
-	 		<label>Question entry form</label>
+	 		<center><label>Question entry form</label></center>
 	 	</div><br>
 	<label>Enter Question</label><br>
-	<textarea class="quiztta"></textarea><br>
+	<textarea class="quiztta" id="ttaquestion"></textarea><br>
 	<label>answer Option one</label><br>
-	<textarea class="answertta"></textarea><br>
+	<textarea class="answertta" id="ttaanswer1"></textarea><br>
 	<label>answer Option two</label><br>
-	<textarea class="answertta"></textarea><br>
+	<textarea class="answertta" id="ttaanswer2"></textarea><br>
 	<label>answer Option three</label><br>
-	<textarea class="answertta"></textarea><br><br>
+	<textarea class="answertta" id="ttaanswer3"></textarea><br><br>
 	<label style="color: green">Correct Answer</label><br>
 	<select class="corectanswer">
-		<option></option>
-		<option>Option 1</option>
-		<option>Option 2</option>
-		<option>Option 3</option>
+		<option value="0"></option>
+		<option value="1">Option 1</option>
+		<option value="2">Option 2</option>
+		<option value="3">Option 3</option>
 	</select><br><br>
 	<div class="btncontrolsholder">
-		<button class="btncontrol">Save Quiz</button>
-		<button class="btncontrol">Preview Quiz</button>
+		<button class="btncontrol" id="savequiz">Save Quiz</button>
+		<button class="btncontrol" id="quizpreview">Preview Quiz</button>
 		<button class="btncontrol">Upload Quiz</button>
 
 	</div>
@@ -58,6 +58,31 @@
 	<br>
 	
 </div><br><br>
+<div class="quizinputholder">
+	 <div class="quizinput">
+	 	<div class="quizinputtitle">
+	 		<center><label>Answer questions</label></center>
+	 	</div><br>
+	<p id="quizholder">
+		sdhfghjk
+	</p>
+	<br>
+	<input type="radio" name="ans" >
+	<label for="option1" id="ans1"></label><br>
+	<input type="radio" name="ans" >
+	<label for="option1" id="ans2"></label><br>
+	<input type="radio" name="ans" >
+	<label for="option1" id="ans3"></label>
+
+	<br><br>
+	<div class="btncontrolsholder">
+		<button class="btnsubmit" id="submit">Submit answer</button>
+
+	</div>
+	</div>
+	<br>
+	
+</div>
 <div class="footer">
 	<div class="rightfooter">
 		<center>
@@ -82,5 +107,6 @@
 		</center><br>
 	</div>
 </div>
+<script type="text/javascript" src="scripts/createquiz.js"></script>
 </body>
 </html>
