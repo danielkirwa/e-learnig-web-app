@@ -42,11 +42,11 @@
 	<label>answer Option three</label><br>
 	<textarea class="answertta" id="ttaanswer3"></textarea><br><br>
 	<label style="color: green">Correct Answer</label><br>
-	<select class="corectanswer">
-		<option value="0"></option>
-		<option value="1">Option 1</option>
-		<option value="2">Option 2</option>
-		<option value="3">Option 3</option>
+	<select class="corectanswer" id="answercode">
+		<option ></option>
+		<option value="0">Option 1</option>
+		<option value="1">Option 2</option>
+		<option value="2">Option 3</option>
 	</select><br><br>
 	<div class="btncontrolsholder">
 		<button class="btncontrol" id="savequiz">Save Quiz</button>
@@ -67,13 +67,14 @@
 		sdhfghjk
 	</p>
 	<br>
-	<input type="radio" name="ans" >
+	<form>
+	<input type="radio" name="ans" value="1">
 	<label for="option1" id="ans1"></label><br>
-	<input type="radio" name="ans" >
+	<input type="radio" name="ans" value="2">
 	<label for="option1" id="ans2"></label><br>
-	<input type="radio" name="ans" >
+	<input type="radio" name="ans"  value="3">
 	<label for="option1" id="ans3"></label>
-
+</form>
 	<br><br>
 	<div class="btncontrolsholder">
 		<button class="btnsubmit" id="submit">Submit answer</button>
