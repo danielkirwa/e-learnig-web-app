@@ -53,8 +53,35 @@
     flex: 0 1 210px; /*  No stretching: */
     margin: 5px;
     font-size: 20px;
+    padding: 10px 12px;
 }
+
+#savequiz{
+	cursor: pointer;
+	background: #954535;
+	color: #fff;
+}
+#quizpreview{
+	cursor: pointer;
+	background: #1e90ff;
+	color: #fff;
+}
+#uploadquiz{
+	cursor: pointer;
+	background: #009900;
+	color: #fff;
+}
+.btnsubmit{
+	background: #009900;
+	font-size: 20px;
+    padding: 10px 12px;
+    cursor: pointer;
+    color: #fff;
+
+}
+
  /* on smalll screens */
+
 @media(max-width: 850px){
 .quizinput{
 	width: 100%;

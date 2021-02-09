@@ -27,6 +27,7 @@ btnpreviewquiz.addEventListener('click', () =>{
 	 let ansdisplay1 = document.getElementById('ans1');
 	 let ansdisplay2 = document.getElementById('ans2');
 	 let ansdisplay3 = document.getElementById('ans3');
+
        
         let q = localStorage.getItem('qustion');
         let a1 = localStorage.getItem('answer1');
@@ -36,6 +37,7 @@ btnpreviewquiz.addEventListener('click', () =>{
 	  ansdisplay1.innerHTML = a1;
 	  ansdisplay2.innerHTML = a2;
 	  ansdisplay3.innerHTML = a3;
+	  localStorage.setItem('previewed' , 0);
 })
 
 let btnsubmit =document.getElementById('submit');
@@ -75,3 +77,34 @@ btnsubmit.addEventListener('click', () =>{
 	  ansdisplay3.innerHTML = a3;
  }
  keeppreview();
+
+// validate exam code
+let checkexamcode = document.getElementById('txtquizcode');
+checkexamcode.addEventListener('keyup', () =>{
+	if (checkexamcode.value.length < 3){
+		
+		document.getElementById('txtquizcode').style.border = "2px solid red";
+	}else{
+		var numbers = /^[0-9]+$/;
+		if (checkexamcode.value.match(numbers)) {
+			document.getElementById('txtquizcode').style.border = "2px solid green";
+		}else{
+			document.getElementById('txtquizcode').style.border = "2px solid red";
+		}
+		
+	}
+
+})
+  let btnuploadquiz = document.getElementById('uploadquiz');
+  btnuploadquiz.addEventListener('click', () =>{
+  	let examcode = document.getElementById('txtquizcode').value;
+  	if (examcode == "") {
+  		alert('No code');
+  		document.getElementById('txtquizcode').style.border = "2px solid red";
+  	}
+  	else{
+  		alert(examcode);
+  	}
+  })
+
+
