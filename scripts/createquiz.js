@@ -84,12 +84,18 @@ checkexamcode.addEventListener('keyup', () =>{
 	if (checkexamcode.value.length < 3){
 		
 		document.getElementById('txtquizcode').style.border = "2px solid red";
+		document.getElementById('codeerror').style.color = "red";
+		document.getElementById('codeerror').innerHTML = "* Short Code length";
 	}else{
 		var numbers = /^[0-9]+$/;
 		if (checkexamcode.value.match(numbers)) {
 			document.getElementById('txtquizcode').style.border = "2px solid green";
+			document.getElementById('codeerror').style.color = "green";
+			document.getElementById('codeerror').innerHTML = "Code accepted";
 		}else{
 			document.getElementById('txtquizcode').style.border = "2px solid red";
+			document.getElementById('codeerror').style.color = "red";
+			document.getElementById('codeerror').innerHTML = "* Wrong Code Format";
 		}
 		
 	}
@@ -101,9 +107,21 @@ checkexamcode.addEventListener('keyup', () =>{
   	if (examcode == "") {
   		alert('No code');
   		document.getElementById('txtquizcode').style.border = "2px solid red";
+  		document.getElementById('codeerror').style.color = "red";
+  		document.getElementById('codeerror').innerHTML = "* Enter Exam Code";
   	}
   	else{
-  		alert(examcode);
+  		var numbers = /^[0-9]+$/;
+		if (checkexamcode.value.match(numbers)) {
+			document.getElementById('txtquizcode').style.border = "2px solid green";
+			document.getElementById('codeerror').style.color = "green";
+			document.getElementById('codeerror').innerHTML = "Code accepted";
+			alert('ready to upload');
+		}else{
+			document.getElementById('txtquizcode').style.border = "2px solid red";
+			document.getElementById('codeerror').style.color = "red";
+			document.getElementById('codeerror').innerHTML = "* Wrong Code Format";
+		}
   	}
   })
 

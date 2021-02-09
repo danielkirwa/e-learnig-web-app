@@ -1,0 +1,117 @@
+
+.weekend-schedule{
+  background: #FD4935;
+   width: 80%;
+   padding-left: 10%;
+   padding-right: 10%;
+   padding-top: 5%;
+   padding-bottom: 5%;
+}
+.weeked-discription{
+ background: #fff;
+}
+.weekend-header{
+  color: brown;
+  font-size: 30px;
+  font-weight: bold;
+}
+.weekend-activitiy1{
+  color: #1e90ff;
+ font-size: 22px;
+ 
+}
+.weekend-activitiy2{
+  color: #FD4935;
+ font-size: 22px;
+}
+.schedule-holder{
+  width: 100%;
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.schedules{
+      flex: 1 1 210px; /*  Stretching: */
+    flex: 0 1 210px; /*  No stretching: */
+    margin: 5px;
+}
+.daydisplay{
+
+  border-radius: 3px 25px ;
+  background: #fff;
+  padding: 20px;
+   font-size: 20px;
+  font-weight: bold;
+  width: 120px;
+
+
+}
+.time-schedule{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.monday-schedule{
+  margin-left: 2%;
+  background: #FD4935;
+}
+.tuesday-schedule{
+  margin-left: 2%;
+  background: #FEC12C;
+}
+.wednesday-schedule{
+  margin-left: 2%;
+  background: brown;
+}
+.thursday-schedule{
+  margin-left: 2%;
+  background: #FD4935;
+}
+.friday-schedule{
+  margin-left: 2%;
+  background: #FEC12C;
+}
+
+.profileicon{
+  position: absolute;
+  cursor: pointer;
+  right: 2%;
+  top: 1%;
+}
+.popupmenu{
+  width: 150px;
+  background: #1e90ff;
+  text-align: center; 
+  position: absolute; 
+  top: 8%; 
+  right: 1%; 
+  overflow: hidden;
+  display: none;
+
+}
+.popupmenu a{
+    padding: 10px 30% ;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  text-decoration: none;
+  background: #fff; 
+  transition: .5s ease all;
+}
+.popupmenu a:hover{
+  border-bottom: 4px solid brown;
+}
+
+
+.popuptitle{
+  width: 100%;
+  background: #FEC12C;
+  color: brown;
+  font-weight: bold;
+  font-size: 22px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+
+/*-------------------small screens ------------------*/
