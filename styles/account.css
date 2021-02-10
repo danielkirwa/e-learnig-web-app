@@ -111,6 +111,40 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+.enrolled-holder{
+
+}
+.enrolled-title{
+  width: 100%;
+  background: #FEC12C;
+  color: brown;
+  font-weight: bold;
+  font-size: 22px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.enrolled{
+   width: 100%;
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.enrolled-activity{
+flex: 1 1 300px; /*  Stretching: */
+    flex: 0 1 300px; /*  No stretching: */
+    margin: 5px;
+    border:2px solid grey;
+    padding: 3px;
+    border-radius: 10px;
+}
+.activitydisplay{
+ border-radius: 3px 25px ;
+  background: #f1f1f1;
+  padding: 20px;
+   font-size: 20px;
+  font-weight: bold;
+  width: 250px;
+}
 
 
 
