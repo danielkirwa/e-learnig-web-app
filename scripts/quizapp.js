@@ -1,6 +1,6 @@
 
 // global variable
-
+var studentscore = document.getElementById('scoredmarks');
 
 let btnstartquiz = document.getElementById('startquiz');
  btnstartquiz.addEventListener('click', () =>{
@@ -51,7 +51,6 @@ populatequiz()
 let btnsubmit =document.getElementById('submit');
 btnsubmit.addEventListener('click', () =>{
 	var corectanswercode = localStorage.getItem('correctanswer');
-	var studentscore = document.getElementById('scoredmarks');
 	   var correctanswer = document.forms[0];
 	   var score = "";
 	   var totalscore = "";
@@ -76,6 +75,12 @@ btnsubmit.addEventListener('click', () =>{
    studentscore.innerHTML = totalscore;
 
 })
+function retainstudentmarks() {
+	// body...
+	let currentscore = localStorage.getItem('studentscore');
+	studentscore.innerHTML = currentscore;
+}
+retainstudentmarks();
 
  function keeppopulatedquiz() {
  	// body...
