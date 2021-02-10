@@ -68,8 +68,10 @@ btnsubmit.addEventListener('click', () =>{
 
   	// sum student score 
 
-  	 currentscore = localStorage.getItem('studentscore');
+  	 let currentscore = localStorage.getItem('studentscore');
+  	 currentscore = parseInt(currentscore);
   	 totalscore = score + currentscore;
+  	 localStorage.setItem('studentscore', totalscore);
 
    studentscore.innerHTML = totalscore;
 
