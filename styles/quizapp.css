@@ -36,6 +36,9 @@
     margin-bottom: 20px;
 
 }
+#submit{
+	display: none;
+}
 .btnstart{
 	background: #009900;
 	font-size: 20px;
