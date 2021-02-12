@@ -101,6 +101,34 @@ checkexamcode.addEventListener('keyup', () =>{
 	}
 
 })
+
+
+ // check quiz title
+
+ let checkexamtitle =document.getElementById('txtquiztitle');
+  checkexamtitle.addEventListener('keyup' , () =>{
+
+  	 if (checkexamtitle.value.length <5) {
+  	 	document.getElementById('txtquiztitle').style.border = "2px solid red";
+		document.getElementById('titleerror').style.color = "red";
+		document.getElementById('titleerror').innerHTML = "* Short Title length";
+
+  	 }else{
+  	 	var numbers = /^[0-9a-zA-Z]+$/;
+		if (checkexamcode.value.match(numbers)) {
+			document.getElementById('txtquiztitle').style.border = "2px solid green";
+			document.getElementById('titleerror').style.color = "green";
+			document.getElementById('titleerror').innerHTML = "Title accepted";
+		}else{
+			document.getElementById('txtquiztitle').style.border = "2px solid red";
+			document.getElementById('titleerror').style.color = "red";
+			document.getElementById('titleerror').innerHTML = "* Wrong Title Format";
+		}
+  	 }
+
+  })
+
+
   let btnuploadquiz = document.getElementById('uploadquiz');
   btnuploadquiz.addEventListener('click', () =>{
   	let examcode = document.getElementById('txtquizcode').value;

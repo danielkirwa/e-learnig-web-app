@@ -59,7 +59,7 @@ btnsubmit.addEventListener('click', () =>{
 	   var totalscore = "";
   var i;
 
-  
+  console.log(typeof score  + score);
   for (i = 0; i < correctanswer.length; i++) {
     if (correctanswer[corectanswercode].checked) {
       // corect answer selected
@@ -72,6 +72,7 @@ btnsubmit.addEventListener('click', () =>{
 
 
   	// sum student score 
+  	console.log(typeof score  + score);
  
   	 let currentscore = localStorage.getItem('studentscore');
   	 currentscore = parseInt(currentscore);

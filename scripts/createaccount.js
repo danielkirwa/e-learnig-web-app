@@ -3,13 +3,7 @@
 let regform = document.querySelector('.regform');
   let btnshowpassword1 = document.getElementById('showpassword1');
  let btnshowpassword2 = document.getElementById('showpassword2');
-  // Your web app's Firebase configuration
 
-  // Initialize Firebase
- /* firebase.initializeApp(firebaseConfig);
-
-   const auth = firebase.auth();
-*/
 
 
     // toggle forms
@@ -81,8 +75,11 @@ let btncallloinform = document.getElementById('btncalllogin');
 		}
    })
 
-    function singupuser() {
-    	// body...
+
+// signup new users
+ let btnsignupnewuser = document.getElementById('');
+  btnsignupnewuser.addEventListener('click', () =>{
+  	// body...
     	var email = document.getElementById('signupemail');
     	var password = document.getElementById('signuppassword');
 
@@ -91,10 +88,14 @@ let btncallloinform = document.getElementById('btncalllogin');
     	 
 
     	 alert("signed up");
-    }
+  })
 
-     function singinuser() {
-    	// body...
+
+ // sigin registered users 
+    let btnsigninnewuser = document.getElementById('');
+  btnsigninnewuser.addEventListener('click', () =>{
+
+  	// body...
     	var email = document.getElementById('signupemail');
     	var password = document.getElementById('signuppassword');
 
@@ -103,7 +104,11 @@ let btncallloinform = document.getElementById('btncalllogin');
     	 
 
     	 alert("signed in" + email.value);
-    }
+  })
+
+  
+
+ 
     function signout() {
     	// body...
     	auth.signOut();
