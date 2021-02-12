@@ -50,11 +50,16 @@ populatequiz()
 
 let btnsubmit =document.getElementById('submit');
 btnsubmit.addEventListener('click', () =>{
+   
+
+
 	var corectanswercode = localStorage.getItem('correctanswer');
 	   var correctanswer = document.forms[0];
 	   var score = "";
 	   var totalscore = "";
   var i;
+
+  
   for (i = 0; i < correctanswer.length; i++) {
     if (correctanswer[corectanswercode].checked) {
       // corect answer selected
@@ -65,8 +70,9 @@ btnsubmit.addEventListener('click', () =>{
     }
   }
 
-  	// sum student score 
 
+  	// sum student score 
+ 
   	 let currentscore = localStorage.getItem('studentscore');
   	 currentscore = parseInt(currentscore);
   	 totalscore = score + currentscore;

@@ -23,6 +23,9 @@
 .regform{
 	display: none;
 }
+.loginform{
+	display: none;
+}
 .inputstyle{
 	min-width: 300px;
   padding: 12px 20px;
