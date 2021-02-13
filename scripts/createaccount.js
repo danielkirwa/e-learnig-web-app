@@ -65,6 +65,32 @@ let btncallloinform = document.getElementById('btncalllogin');
 			passwordeye3.type= "password";
 		}
    })
+    // get userdata
+let signupEmail;
+let signupPassword;
+    function readyDetails() {
+    	// body...
+    	let firstNane = document.getElementById('txtfirstname').value;
+    	let middleName = document.getElementById('txtmiddlename').value;
+    	let lastName = document.getElementById('txtlastname').value;
+    	 signupEmail = document.getElementById('signupemail').value;
+    	let arrayIntrestedArea = document.getElementById('cmbspecialization');
+    	let intrestedArea = arrayIntrestedArea.options[arrayIntrestedArea.selectedIndex].text;
+    	let phoneNumber = document.getElementById('txtphone').value;
+    	signupPassword = document.getElementById('signuppassword').value;
+    	let confirmSignupPassword = document.getElementById('confirmsignuppassword').value;
+
+    		/*console.log(firstNane);
+    		console.log(middleName);
+    		console.log(lastName);
+    		console.log(signupEmail);
+    		console.log(intrestedArea);
+    		console.log(phoneNumber);
+    		console.log(signupPassword);
+    		console.log(confirmSignupPassword);*/
+
+
+    }
   
    btnshowpassword2.addEventListener('click', () =>{
    		var passwordeye2  = document.getElementById('siginppassword');
@@ -77,17 +103,25 @@ let btncallloinform = document.getElementById('btncalllogin');
 
 
 // signup new users
- let btnsignupnewuser = document.getElementById('');
+ let btnsignupnewuser = document.getElementById('btnsubmitdetails');
   btnsignupnewuser.addEventListener('click', () =>{
   	// body...
-    	var email = document.getElementById('signupemail');
-    	var password = document.getElementById('signuppassword');
 
-    	 const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
-    	 promise.catch(e => alert(e.message));
+  	readyDetails();
+
+
+  	auth.createUserWithEmailAndPassword(signupEmail, signupPassword)
+  .then((user) => {
+    // Signed in 
+    alert('signed in');
+    // ...
+  })
+  .catch((error) => {
+    console.log(error);
+    alert(error.message);
+    // ..
+  });
     	 
-
-    	 alert("signed up");
   })
 
 
