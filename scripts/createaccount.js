@@ -3,7 +3,8 @@
 let regform = document.querySelector('.regform');
   let btnshowpassword1 = document.getElementById('showpassword1');
  let btnshowpassword2 = document.getElementById('showpassword2');
-
+let firstNane,middleName,lastName,intrestedArea,phoneNumber,signupEmail,signupPassword,confirmSignupPassword;
+let loginusername,loginpassword;
 
 
     // toggle forms
@@ -66,19 +67,18 @@ let btncallloinform = document.getElementById('btncalllogin');
 		}
    })
     // get userdata
-let signupEmail;
-let signupPassword;
+
     function readyDetails() {
     	// body...
-    	let firstNane = document.getElementById('txtfirstname').value;
-    	let middleName = document.getElementById('txtmiddlename').value;
-    	let lastName = document.getElementById('txtlastname').value;
-    	 signupEmail = document.getElementById('signupemail').value;
+    	firstNane = document.getElementById('txtfirstname').value;
+    	middleName = document.getElementById('txtmiddlename').value;
+    	lastName = document.getElementById('txtlastname').value;
+    	signupEmail = document.getElementById('signupemail').value;
     	let arrayIntrestedArea = document.getElementById('cmbspecialization');
-    	let intrestedArea = arrayIntrestedArea.options[arrayIntrestedArea.selectedIndex].text;
-    	let phoneNumber = document.getElementById('txtphone').value;
+    	intrestedArea = arrayIntrestedArea.options[arrayIntrestedArea.selectedIndex].text;
+    	phoneNumber = document.getElementById('txtphone').value;
     	signupPassword = document.getElementById('signuppassword').value;
-    	let confirmSignupPassword = document.getElementById('confirmsignuppassword').value;
+    	confirmSignupPassword = document.getElementById('confirmsignuppassword').value;
 
     		/*console.log(firstNane);
     		console.log(middleName);
@@ -124,20 +124,33 @@ let signupPassword;
     	 
   })
 
+ function getlogindetails() {
+ 	// body...
+ 	 loginusername = document.getElementById('txtsiginemail').value;
+ 	 loginpassword =  document.getElementById('siginppassword').value; 
+ 	 console.log(loginusername);
+ 	 console.log(loginpassword);
+ }
+
 
  // sigin registered users 
-    let btnsigninnewuser = document.getElementById('');
+    let btnsigninnewuser = document.getElementById('btnsubmitlogin')
   btnsigninnewuser.addEventListener('click', () =>{
-
+			getlogindetails();
   	// body...
-    	var email = document.getElementById('signupemail');
-    	var password = document.getElementById('signuppassword');
 
-    	 const promise = auth.signInWithEmailAndPassword(email.value, password.value);
-    	 promise.catch(e => alert(e.message));
+    	 auth.signInWithEmailAndPassword(loginusername,loginpassword)
+    	 .then((user) => {
+    // Signed in
+    alert('loged in');
+    // ...
+  })
+  .catch((error) => {
+   console.log(error.code);
+    alert(error.message);
+  });
     	 
 
-    	 alert("signed in" + email.value);
   })
 
   
