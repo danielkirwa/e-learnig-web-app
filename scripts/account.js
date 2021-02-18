@@ -1,5 +1,8 @@
 
 // global variable 
+let btnaddactivity = document.getElementById('addactivity');
+
+
 
 let callpopupmenu = document.querySelector('.profileicon');
 callpopupmenu.addEventListener('click' , () =>{
@@ -19,4 +22,24 @@ callpopupmenu.addEventListener('click' , () =>{
 	}
 	}
 
+})
+
+
+btnaddactivity.addEventListener('click', () => {
+	 alert("added");
+	let myctivityframe = document.querySelector('.enrolled');
+	  let newactivityframe = `
+	  		<div class="enrolled-activity">
+		 	<div class="activitydisplay">
+				<center>
+					Activity One
+				</center>
+			</div><br>
+			 <label>Score : 0.0</label>
+			<p>
+				Just started
+			</p>
+		 </div><br>
+	  `
+	 myctivityframe.innerHTML += newactivityframe;
 })

@@ -145,6 +145,13 @@ flex: 1 1 300px; /*  Stretching: */
   font-weight: bold;
   width: 250px;
 }
+.addactivity{
+ border:  2px solid dodgerblue;
+}
+.fa-plus{
+  color: dodgerblue;
+  cursor: pointer;
+}
 
 
 
