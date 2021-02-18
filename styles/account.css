@@ -147,6 +147,7 @@ flex: 1 1 300px; /*  Stretching: */
 }
 .addactivity{
  border:  2px solid dodgerblue;
+ width: 300px;
 }
 .fa-plus{
   color: dodgerblue;
