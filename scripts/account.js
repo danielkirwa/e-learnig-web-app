@@ -1,10 +1,21 @@
 
 // global variable 
 let btnaddactivity = document.getElementById('addactivity');
-
-
-
+let btncloseenrollpopup = document.getElementById('btncancelenroll');
 let callpopupmenu = document.querySelector('.profileicon');
+let enrollform = document.querySelector('.popupaddenroll');
+let btnsubmitenroll = document.getElementById('btnsubmitenroll');
+let blurbody = document.getElementById('opacity');
+
+btncloseenrollpopup.addEventListener('click', () => {
+	
+	enrollform.style.display ="none";
+	blurbody.style.opacity = "1";
+})
+
+
+
+
 callpopupmenu.addEventListener('click' , () =>{
 	let menu = document.querySelector('.popupmenu');
 	
@@ -26,20 +37,36 @@ callpopupmenu.addEventListener('click' , () =>{
 
 
 btnaddactivity.addEventListener('click', () => {
-	 alert("added");
+	enrollform.style.display ="block";
+	blurbody.style.opacity = "0.4";
+	
+})
+
+btnsubmitenroll.addEventListener('click' , ()  => {
+	let enrollcourse = document.getElementById('coursetoenroll');
+	var selectedcourse = enrollcourse.options[enrollcourse.selectedIndex].value;
+	let skilllevel = document.getElementById('skilllevel');
+	var selectedlevel = skilllevel.options[skilllevel.selectedIndex].value;
+
+	 console.log(selectedcourse + selectedlevel);
 	let myctivityframe = document.querySelector('.enrolled');
 	  let newactivityframe = `
 	  		<div class="enrolled-activity">
 		 	<div class="activitydisplay">
 				<center>
-					Activity One
+					${selectedcourse}
 				</center>
 			</div><br>
 			 <label>Score : 0.0</label>
 			<p>
-				Just started
+				Just started <br
+				<span>Level :</span><br>
+			<span> ${selectedlevel}</span
 			</p>
 		 </div><br>
 	  `
 	 myctivityframe.innerHTML += newactivityframe;
+	 	 alert("added");
+	 	 blurbody.style.opacity = "1";
+	 	 enrollform.style.display ="none";
 })
