@@ -108,16 +108,11 @@ retainstudentmarks();
  keeppopulatedquiz();
 
 
-// check if user is loged in
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    alert("Active user");
-    // ...
-  } else {
-    // User is signed out
-    // ...
-    alert("No Active user");
-  }
-});
+ auth.onAuthStateChanged(function(user){
+      if(user){
+        var email = user.email;
+        alert("Active user" + email);
+      }else{
+        alert("No Active user");
+      }
+    })

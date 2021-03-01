@@ -70,3 +70,4 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 	 	 blurbody.style.opacity = "1";
 	 	 enrollform.style.display ="none";
 })
+

@@ -143,6 +143,7 @@ let btncallloinform = document.getElementById('btncalllogin');
     	 .then((user) => {
     // Signed in
     alert('loged in');
+   // window.location.href='quizapp.html';
     // ...
   })
   .catch((error) => {
