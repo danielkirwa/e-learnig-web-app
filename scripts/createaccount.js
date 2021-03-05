@@ -7,6 +7,8 @@ let firstNane,middleName,lastName,intrestedArea,phoneNumber,signupEmail,signupPa
 let loginusername,loginpassword;
 
 
+ 
+
     // toggle forms
  
  let btncallregistrationform = document.getElementById('btncallregfor');
@@ -110,19 +112,31 @@ let btncallloinform = document.getElementById('btncalllogin');
   	readyDetails();
 
 
-  	auth.createUserWithEmailAndPassword(signupEmail, signupPassword)
+ 	/*auth.createUserWithEmailAndPassword(signupEmail, signupPassword)
   .then((user) => {
     // Signed in 
     alert('signed in');
     // ...
+  })*/
+ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  .then(() => {
+    // Existing and future Auth states are now persisted in the current
+    // session only. Closing the window would clear any existing state even
+    // if a user forgets to sign out.
+    // ...
+    // New sign-in will be persisted with session persistence.
+    return firebase.auth().createUserWithEmailAndPassword(signupEmail, signupPassword);
+    window.location.href='accesedacc.html';
   })
+
+
   .catch((error) => {
     console.log(error);
     alert(error.message);
     // ..
   });
     	 
-  })
+ })
 
  function getlogindetails() {
  	// body...
@@ -134,12 +148,28 @@ let btncallloinform = document.getElementById('btncalllogin');
 
 
  // sigin registered users 
-    let btnsigninnewuser = document.getElementById('btnsubmitlogin')
+   let btnsigninnewuser = document.getElementById('btnsubmitlogin')
   btnsigninnewuser.addEventListener('click', () =>{
 			getlogindetails();
   	// body...
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  .then(() => {
+    // Existing and future Auth states are now persisted in the current
+    // session only. Closing the window would clear any existing state even
+    // if a user forgets to sign out.
+    // ...
+    // New sign-in will be persisted with session persistence.
+    return firebase.auth().signInWithEmailAndPassword(loginusername, loginpassword);
+    window.location.href='accesedacc.html';
+  })
+  .catch((error) => {
+    // Handle Errors here.
+   
+    alert(error.message);
+  });
 
-    	 auth.signInWithEmailAndPassword(loginusername,loginpassword)
+
+    	/* auth.signInWithEmailAndPassword(loginusername,loginpassword)
     	 .then((user) => {
     // Signed in
     alert('loged in');
@@ -150,25 +180,22 @@ let btncallloinform = document.getElementById('btncalllogin');
    console.log(error.code);
     alert(error.message);
   });
-    	 
+    	*/
 
   })
 
-  
 
- 
-    function signout() {
-    	// body...
-    	auth.signOut();
-    	alert("signed out");
-    }
 
 
     auth.onAuthStateChanged(function(user){
     	if(user){
     		var email = user.email;
     		alert("Active user" + email);
+        window.location.href='accesedacc.html';
     	}else{
     		alert("No Active user");
     	}
     })
+
+
+  

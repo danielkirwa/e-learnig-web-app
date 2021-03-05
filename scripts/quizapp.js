@@ -1,6 +1,9 @@
 
 // global variable
 var studentscore = document.getElementById('scoredmarks');
+let usernamedisplay = document.getElementById('logedinusername');
+let btnbackhome = document.getElementById('backhome');
+
 
 let btnstartquiz = document.getElementById('startquiz');
  btnstartquiz.addEventListener('click', () =>{
@@ -108,11 +111,21 @@ retainstudentmarks();
  keeppopulatedquiz();
 
 
- auth.onAuthStateChanged(function(user){
+  // back home button
+
+  btnbackhome.addEventListener('click' , () => {
+    window.location.href='accesedacc.html';
+  })
+
+
+auth.onAuthStateChanged(function(user){
       if(user){
         var email = user.email;
         alert("Active user" + email);
+         console.log(email);
+         usernamedisplay.innerHTML = email;
       }else{
         alert("No Active user");
+        window.location.href='registration.html';
       }
     })

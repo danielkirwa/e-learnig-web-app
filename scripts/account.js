@@ -1,11 +1,15 @@
 
+
 // global variable 
+let usernamedisplay = document.getElementById('logedinusername');
 let btnaddactivity = document.getElementById('addactivity');
 let btncloseenrollpopup = document.getElementById('btncancelenroll');
 let callpopupmenu = document.querySelector('.profileicon');
 let enrollform = document.querySelector('.popupaddenroll');
 let btnsubmitenroll = document.getElementById('btnsubmitenroll');
 let blurbody = document.getElementById('opacity');
+let btnopenquiz = document.getElementById('openquiz');
+let btnlogout = document.getElementById('btnlogout');
 
 btncloseenrollpopup.addEventListener('click', () => {
 	
@@ -71,3 +75,24 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 	 	 enrollform.style.display ="none";
 })
 
+ openquiz.addEventListener('click' , () => {
+ 	window.location.href= 'quizapp.html';
+ })
+
+btnlogout.addEventListener('click' , () =>{
+	    	auth.signOut();
+    	alert("signed out");
+})
+
+
+auth.onAuthStateChanged(function(user){
+      if(user){
+        var email = user.email;
+        alert("Active user" + email);
+         console.log(email);
+         usernamedisplay.innerHTML = email + " ";
+      }else{
+        alert("No Active user");
+        window.location.href='registration.html';
+      }
+    })

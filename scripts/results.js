@@ -3,6 +3,8 @@
 
 
 let callpopupmenu = document.querySelector('.profileicon');
+let usernamedisplay = document.getElementById('logedinusername');
+let btnlogout = document.getElementById('btnlogout');
 
 callpopupmenu.addEventListener('click' , () =>{
 	let menu = document.querySelector('.popupmenu');
@@ -22,6 +24,24 @@ callpopupmenu.addEventListener('click' , () =>{
 	}
 
 })
+
+
+btnlogout.addEventListener('click' , () =>{
+	    	auth.signOut();
+    	alert("signed out");
+})
+
+auth.onAuthStateChanged(function(user){
+      if(user){
+        var email = user.email;
+        alert("Active user" + email);
+         console.log(email);
+         usernamedisplay.innerHTML = email + " ";
+      }else{
+        alert("No Active user");
+        window.location.href='registration.html';
+      }
+    })
 
 
 
