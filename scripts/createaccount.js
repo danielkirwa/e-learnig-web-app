@@ -7,6 +7,16 @@ let firstNane,middleName,lastName,intrestedArea,phoneNumber,signupEmail,signupPa
 let loginusername,loginpassword;
 
 
+// get data for validateion
+      let valfirstNane = document.getElementById('txtfirstname');
+      let valmiddleName = document.getElementById('txtmiddlename');
+      let vallastName = document.getElementById('txtlastname');
+      let valsignupEmail = document.getElementById('signupemail');
+      let valphoneNumber = document.getElementById('txtphone');
+      let valsignupPassword = document.getElementById('signuppassword');
+      let valconfirmSignupPassword = document.getElementById('confirmsignuppassword');
+
+
  
 
     // toggle forms
@@ -69,6 +79,72 @@ let btncallloinform = document.getElementById('btncalllogin');
 		}
    })
     // get userdata
+
+    
+  
+    
+
+    // validate user inputs 
+      valfirstNane.addEventListener('keyup' , () =>{
+      let validfirstname = document.getElementById('txtfirstname').value;
+      if (validfirstname !== "") {
+        var chk = /^[A-Za-z]+$/;
+        if(chk.test(validfirstname)){
+          document.getElementById('txtfirstname').style.border = "2px solid green";
+        }else{
+          document.getElementById('txtfirstname').style.border = "2px solid red";
+        }
+        
+      }else{
+        document.getElementById('txtfirstname').style.border = "2px solid red";
+      }
+    })
+
+      valmiddleName.addEventListener('keyup' , () =>{
+      let validfirstname = document.getElementById('txtmiddlename').value;
+      if (validfirstname !== "") {
+        var chk = /^[A-Za-z]+$/;
+        if(chk.test(validfirstname)){
+          document.getElementById('txtmiddlename').style.border = "2px solid green";
+        }else{
+          document.getElementById('txtmiddlename').style.border = "2px solid red";
+        }
+        
+      }else{
+        document.getElementById('txtmiddlename').style.border = "2px solid red";
+      }
+    })
+ 
+      valsignupEmail.addEventListener('keyup' , () =>{
+      let validfirstname = document.getElementById('signupemail').value;
+      if (validfirstname !== "") {
+        var chk = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if(chk.test(validfirstname)){
+          document.getElementById('signupemail').style.border = "2px solid green";
+        }else{
+          document.getElementById('signupemail').style.border = "2px solid red";
+        }
+        
+      }else{
+        document.getElementById('signupemail').style.border = "2px solid red";
+      }
+    })
+      valphoneNumber.addEventListener('keyup' , () =>{
+      let validfirstname = document.getElementById('txtphone').value;
+      if (validfirstname !== "") {
+        var chk = /^[+]?[0-9]+$/;
+        if(chk.test(validfirstname)){
+          document.getElementById('txtphone').style.border = "2px solid green";
+        }else{
+          document.getElementById('txtphone').style.border = "2px solid red";
+        }
+        
+      }else{
+        document.getElementById('txtphone').style.border = "2px solid red";
+      }
+    })
+
+
 
     function readyDetails() {
     	// body...
