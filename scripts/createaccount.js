@@ -101,10 +101,10 @@ let btncallloinform = document.getElementById('btncalllogin');
     })
 
       valmiddleName.addEventListener('keyup' , () =>{
-      let validfirstname = document.getElementById('txtmiddlename').value;
-      if (validfirstname !== "") {
+      let validmiddlename = document.getElementById('txtmiddlename').value;
+      if (validmiddlename !== "") {
         var chk = /^[A-Za-z]+$/;
-        if(chk.test(validfirstname)){
+        if(chk.test(validmiddlename)){
           document.getElementById('txtmiddlename').style.border = "2px solid green";
         }else{
           document.getElementById('txtmiddlename').style.border = "2px solid red";
@@ -116,10 +116,10 @@ let btncallloinform = document.getElementById('btncalllogin');
     })
  
       valsignupEmail.addEventListener('keyup' , () =>{
-      let validfirstname = document.getElementById('signupemail').value;
-      if (validfirstname !== "") {
+      let validemail = document.getElementById('signupemail').value;
+      if (validemail !== "") {
         var chk = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        if(chk.test(validfirstname)){
+        if(chk.test(validemail)){
           document.getElementById('signupemail').style.border = "2px solid green";
         }else{
           document.getElementById('signupemail').style.border = "2px solid red";
@@ -130,10 +130,10 @@ let btncallloinform = document.getElementById('btncalllogin');
       }
     })
       valphoneNumber.addEventListener('keyup' , () =>{
-      let validfirstname = document.getElementById('txtphone').value;
-      if (validfirstname !== "") {
+      let validphonenumber = document.getElementById('txtphone').value;
+      if (validphonenumber !== "") {
         var chk = /^[+]?[0-9]+$/;
-        if(chk.test(validfirstname)){
+        if(chk.test(validphonenumber)){
           document.getElementById('txtphone').style.border = "2px solid green";
         }else{
           document.getElementById('txtphone').style.border = "2px solid red";
@@ -143,6 +143,20 @@ let btncallloinform = document.getElementById('btncalllogin');
         document.getElementById('txtphone').style.border = "2px solid red";
       }
     })
+      valconfirmSignupPassword.addEventListener('keyup' , () => {
+          let validpassword = document.getElementById('confirmsignuppassword').value;
+      if (validpassword !== "") {
+        var chk = valsignupPassword.value;
+        if(chk == validpassword){
+          document.getElementById('confirmsignuppassword').style.border = "2px solid green";
+        }else{
+          document.getElementById('confirmsignuppassword').style.border = "2px solid red";
+        }
+        
+      }else{
+        document.getElementById('confirmsignuppassword').style.border = "2px solid red";
+      }
+      })
 
 
 
@@ -186,16 +200,14 @@ let btncallloinform = document.getElementById('btncalllogin');
   	// body...
 
   	readyDetails();
+    if (firstNane == "" || signupEmail == "" || phoneNumber == "" || signupPassword == "" || confirmSignupPassword == "") {
+      alert('fill all details correctly');
+    }else{
+       if (signupPassword == confirmSignupPassword ) {
 
-
- 	/*auth.createUserWithEmailAndPassword(signupEmail, signupPassword)
-  .then((user) => {
-    // Signed in 
-    alert('signed in');
-    // ...
-  })*/
- firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+       firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
   .then(() => {
+   
     // Existing and future Auth states are now persisted in the current
     // session only. Closing the window would clear any existing state even
     // if a user forgets to sign out.
@@ -211,7 +223,13 @@ let btncallloinform = document.getElementById('btncalllogin');
     alert(error.message);
     // ..
   });
-    	 
+        
+      }else{
+        alert('password do not match');
+      }
+      
+    }
+ 	 
  })
 
  function getlogindetails() {
@@ -228,6 +246,7 @@ let btncallloinform = document.getElementById('btncalllogin');
   btnsigninnewuser.addEventListener('click', () =>{
 			getlogindetails();
   	// body...
+     btnsigninnewuser.innerHTML = "please wait ..."
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
   .then(() => {
     // Existing and future Auth states are now persisted in the current
@@ -242,6 +261,7 @@ let btncallloinform = document.getElementById('btncalllogin');
     // Handle Errors here.
    
     alert(error.message);
+    btnsigninnewuser.innerHTML = "Log In"
   });
 
 
