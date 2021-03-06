@@ -1,3 +1,5 @@
+
+
  // global variables
  let logform = document.querySelector('.loginform');
 let regform = document.querySelector('.regform');
@@ -198,12 +200,34 @@ let btncallloinform = document.getElementById('btncalllogin');
  let btnsignupnewuser = document.getElementById('btnsubmitdetails');
   btnsignupnewuser.addEventListener('click', () =>{
   	// body...
-
+    btnsignupnewuser.innerHTML = 'Please wait ...';
   	readyDetails();
-    if (firstNane == "" || signupEmail == "" || phoneNumber == "" || signupPassword == "" || confirmSignupPassword == "") {
+
+   if (firstNane == "" || signupEmail == "" || phoneNumber == "" || signupPassword == "" || confirmSignupPassword == "") {
       alert('fill all details correctly');
+      btnsignupnewuser.innerHTML = 'Register Now';
     }else{
        if (signupPassword == confirmSignupPassword ) {
+      // add data to realtime database
+
+  firebase.database().ref('studentusers/' + phoneNumber).set({
+
+      FirstName: firstNane,
+      MiddleName: middleName,
+      LastName: lastName,
+      IntrestedArea: intrestedArea,
+      Email: signupEmail,
+      PhoneNumber: phoneNumber
+
+
+    },  (error) => {
+  if (error) {
+    // The write failed...
+     alert('Registration Faled');
+     btnsignupnewuser.innerHTML = 'Register Now';
+  } else {
+    // Data saved successfully!
+     //alert('successfully created account');
 
        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
   .then(() => {
@@ -215,17 +239,26 @@ let btncallloinform = document.getElementById('btncalllogin');
     // New sign-in will be persisted with session persistence.
     return firebase.auth().createUserWithEmailAndPassword(signupEmail, signupPassword);
     window.location.href='accesedacc.html';
+    btnsignupnewuser.innerHTML = 'Register Now';
   })
 
 
   .catch((error) => {
     console.log(error);
     alert(error.message);
+    btnsignupnewuser.innerHTML = 'Register Now';
     // ..
   });
+  }
+} );
+
+      // end of realtime database
+
+
         
       }else{
         alert('password do not match');
+        btnsignupnewuser.innerHTML = 'Register Now';
       }
       
     }
