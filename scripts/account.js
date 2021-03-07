@@ -64,8 +64,9 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 			 <label>Score : 0.0</label>
 			<p>
 				Just started <br
-				<span>Level :</span><br>
-			<span> ${selectedlevel}</span
+				<span>Level :</span>
+			<span> ${selectedlevel}</span <br>
+			<button id="openquiz">open Quiz</button>
 			</p>
 		 </div><br>
 	  `

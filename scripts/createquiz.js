@@ -1,11 +1,15 @@
 
 let btnsavequiz = document.getElementById('savequiz');
 btnsavequiz.addEventListener('click', () =>{
+	let quizcode = document.getElementById('txtquizcode').value;
+	let quiztitle = document.getElementById('txtquiztitle').value;
 	let question = document.getElementById('ttaquestion').value;
 	let answer1 = document.getElementById('ttaanswer1').value;
 	let answer2 = document.getElementById('ttaanswer2').value;
 	let answer3 = document.getElementById('ttaanswer3').value;
 	let answercode = document.getElementById('answercode').selectedIndex - 1;
+	 localStorage.setItem('quizcode', quizcode);
+	 localStorage.setItem('quiztitle', quiztitle);
 	 localStorage.setItem('qustion', question);
 	 localStorage.setItem('answer1', answer1);
 	 localStorage.setItem('answer2', answer2);
@@ -13,10 +17,6 @@ btnsavequiz.addEventListener('click', () =>{
 	 localStorage.setItem('correctanswer', answercode);
 
 	 // display questions
-
-	
-
-
 
 })
 
@@ -127,10 +127,11 @@ checkexamcode.addEventListener('keyup', () =>{
   	 }
 
   })
-
-
+ 
+ 
   let btnuploadquiz = document.getElementById('uploadquiz');
   btnuploadquiz.addEventListener('click', () =>{
+  	//readyquestion();
   	let examcode = document.getElementById('txtquizcode').value;
   	if (examcode == "") {
   		alert('No code');
@@ -144,7 +145,66 @@ checkexamcode.addEventListener('keyup', () =>{
 			document.getElementById('txtquizcode').style.border = "2px solid green";
 			document.getElementById('codeerror').style.color = "green";
 			document.getElementById('codeerror').innerHTML = "Code accepted";
-			alert('ready to upload');
+			//alert('ready to upload code present');
+
+			let examtitle = document.getElementById('txtquiztitle').value;
+			 if (examtitle == "") {
+			 	alert('No title');
+			 	document.getElementById('txtquiztitle').style.border = "2px solid red";
+			document.getElementById('titleerror').style.color = "red";
+			document.getElementById('titleerror').innerHTML = "* Enter Exam Title";
+			 }else{
+			 		var title = /^[0-9a-zA-Z]+$/;
+
+			 		if (checkexamtitle.value.match(title)) {
+			document.getElementById('txtquiztitle').style.border = "2px solid green";
+			document.getElementById('titleerror').style.color = "green";
+			document.getElementById('titleerror').innerHTML = "Title accepted";
+			alert('ready to upload title/code present');
+           // get data to upload
+           let qcode = localStorage.getItem('quizcode');
+	 let qtitle = localStorage.getItem('quiztitle');
+	 let qustion = localStorage.getItem('qustion');
+	 let answer1 = localStorage.getItem('answer1');
+	 let answer2 = localStorage.getItem('answer2');
+	 let answer3 = localStorage.getItem('answer3');
+	 let correctanswer = localStorage.getItem('correctanswer');
+
+			// upload data to realtime database
+		firebase.database().ref('QuizQuestions/' + qcode).set({
+
+
+
+      QuizCode: qcode,
+      QuizTitle: qtitle,
+      Quiz: qustion,
+      AnswerOne: answer1,
+      AnswerTwo: answer2,
+      AnswerThree: answer3,
+      CorrectAnswer: correctanswer
+
+
+    },  (error) => {
+  if (error) {
+    // The write failed...
+     alert('Upload Faled');
+    
+  } else {
+  	alert('Uploaded successfuly');
+  }
+  } );
+
+
+
+		}else{
+			document.getElementById('txtquiztitle').style.border = "2px solid red";
+			document.getElementById('titleerror').style.color = "red";
+			document.getElementById('titleerror').innerHTML = "* Wrong Title Format";
+		}
+
+
+			 }
+
 		}else{
 			document.getElementById('txtquizcode').style.border = "2px solid red";
 			document.getElementById('codeerror').style.color = "red";
