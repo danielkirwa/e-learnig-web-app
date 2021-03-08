@@ -1,4 +1,5 @@
-
+let btnpreviewquiz = document.getElementById('quizpreview');
+let btnuploadquiz = document.getElementById('uploadquiz');
 let btnsavequiz = document.getElementById('savequiz');
 btnsavequiz.addEventListener('click', () =>{
 	let quizcode = document.getElementById('txtquizcode').value;
@@ -17,10 +18,13 @@ btnsavequiz.addEventListener('click', () =>{
 	 localStorage.setItem('correctanswer', answercode);
 
 	 // display questions
+	 btnuploadquiz.style.display = "none";
+  	btnpreviewquiz.style.display = "block";
+  	localStorage.setItem('btncontrol' , 1);
 
 })
 
-let btnpreviewquiz = document.getElementById('quizpreview');
+
 btnpreviewquiz.addEventListener('click', () =>{
 	 // get quiznumber 
 	  let displaynumber = document.getElementById('txtquiznumber');
@@ -34,9 +38,21 @@ btnpreviewquiz.addEventListener('click', () =>{
 	  if (currentquestionnumber == undefined) {
 	  	localStorage.setItem('questionnumber' , 1);
 	  	displaynumber.value = 1;
+	  	 let q = localStorage.getItem('qustion');
+        let a1 = localStorage.getItem('answer1');
+        let a2 = localStorage.getItem('answer2');
+        let a3 = localStorage.getItem('answer3');
+	  quizdisplay.innerHTML = q;
+	  ansdisplay1.innerHTML = a1;
+	  ansdisplay2.innerHTML = a2;
+	  ansdisplay3.innerHTML = a3;
+	  localStorage.setItem('previewed' , 0);
+	  btnuploadquiz.style.display = "block";
+  	btnpreviewquiz.style.display = "none";
+  	localStorage.setItem('btncontrol' , 2);
 	  }else{
 	  	 currentquestionnumber = parseInt(currentquestionnumber);
-	  	 nextcurrentquestionnumber = currentquestionnumber + 1 ;
+	  	 let nextcurrentquestionnumber = currentquestionnumber + 1 ;
 	  	 localStorage.setItem('questionnumber', nextcurrentquestionnumber);
 	  	 let q = localStorage.getItem('qustion');
         let a1 = localStorage.getItem('answer1');
@@ -48,6 +64,9 @@ btnpreviewquiz.addEventListener('click', () =>{
 	  ansdisplay2.innerHTML = a2;
 	  ansdisplay3.innerHTML = a3;
 	  localStorage.setItem('previewed' , 0);
+	  btnuploadquiz.style.display = "block";
+  	btnpreviewquiz.style.display = "none";
+  	localStorage.setItem('btncontrol' , 2);
 	  }
    
 })
@@ -140,8 +159,7 @@ checkexamcode.addEventListener('keyup', () =>{
 
   })
  
- 
-  let btnuploadquiz = document.getElementById('uploadquiz');
+
   btnuploadquiz.addEventListener('click', () =>{
   	//readyquestion();
   	let examcode = document.getElementById('txtquizcode').value;
@@ -207,7 +225,9 @@ checkexamcode.addEventListener('keyup', () =>{
     
   } else {
   	alert('Uploaded successfuly');
-
+  	btnuploadquiz.style.display = "none";
+  	btnpreviewquiz.style.display = "none";
+  	localStorage.setItem('btncontrol' , 1);
   }
   } );
 
@@ -229,5 +249,40 @@ checkexamcode.addEventListener('keyup', () =>{
 		}
   	}
   })
+
+  // keep control buttons
+  function keepcontrolbuttons() {
+  	// body...
+  	let  btncode = localStorage.getItem('btncontrol');
+  		
+  		 if (btncode == undefined) {
+  		 	localStorage.setItem('btncontrol', 0);
+  		 	 btnuploadquiz.style.display = "none";
+  	         btnpreviewquiz.style.display = "none";
+  		 }else{
+  		 	if (btncode == 0) {
+  		 		btnuploadquiz.style.display = "none";
+  	         btnpreviewquiz.style.display = "none";
+  	     }else if(btncode == 1){
+  	     		btnuploadquiz.style.display = "none";
+  	         btnpreviewquiz.style.display = "block";
+  	     }else{
+  	     		btnuploadquiz.style.display = "block";
+  	         btnpreviewquiz.style.display = "none";
+  	     }
+
+  		 }
+  }
+
+  keepcontrolbuttons();
+ 
+
+ // clear for complete quiz
+
+ let btncompletequiz = document.getElementById('completequiz');
+ btncompletequiz.addEventListener('click', () =>{
+ 	localStorage.clear();
+ 	window.location.href='adminquizcontrol.html';
+ })
 
 

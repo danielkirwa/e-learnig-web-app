@@ -65,10 +65,17 @@
 	cursor: pointer;
 	background: #1e90ff;
 	color: #fff;
+	display: none;
 }
 #uploadquiz{
 	cursor: pointer;
 	background: #009900;
+	color: #fff;
+	display: none;
+}
+#completequiz{
+	cursor: pointer;
+	background: #954535;
 	color: #fff;
 }
 .btnsubmit{
