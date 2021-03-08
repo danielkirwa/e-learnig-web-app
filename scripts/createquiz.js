@@ -227,7 +227,7 @@ checkexamcode.addEventListener('keyup', () =>{
   	alert('Uploaded successfuly');
   	btnuploadquiz.style.display = "none";
   	btnpreviewquiz.style.display = "none";
-  	localStorage.setItem('btncontrol' , 1);
+  	localStorage.setItem('btncontrol' , 0);
   }
   } );
 
