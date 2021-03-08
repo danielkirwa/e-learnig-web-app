@@ -22,22 +22,34 @@ btnsavequiz.addEventListener('click', () =>{
 
 let btnpreviewquiz = document.getElementById('quizpreview');
 btnpreviewquiz.addEventListener('click', () =>{
+	 // get quiznumber 
+	  let displaynumber = document.getElementById('txtquiznumber');
+	 let currentquestionnumber =  localStorage.getItem('questionnumber');
 
 	 let quizdisplay = document.getElementById('quizholder');
 	 let ansdisplay1 = document.getElementById('ans1');
 	 let ansdisplay2 = document.getElementById('ans2');
 	 let ansdisplay3 = document.getElementById('ans3');
 
-       
-        let q = localStorage.getItem('qustion');
+	  if (currentquestionnumber == undefined) {
+	  	localStorage.setItem('questionnumber' , 1);
+	  	displaynumber.value = 1;
+	  }else{
+	  	 currentquestionnumber = parseInt(currentquestionnumber);
+	  	 nextcurrentquestionnumber = currentquestionnumber + 1 ;
+	  	 localStorage.setItem('questionnumber', nextcurrentquestionnumber);
+	  	 let q = localStorage.getItem('qustion');
         let a1 = localStorage.getItem('answer1');
         let a2 = localStorage.getItem('answer2');
         let a3 = localStorage.getItem('answer3');
+        displaynumber.value = nextcurrentquestionnumber;
 	  quizdisplay.innerHTML = q;
 	  ansdisplay1.innerHTML = a1;
 	  ansdisplay2.innerHTML = a2;
 	  ansdisplay3.innerHTML = a3;
 	  localStorage.setItem('previewed' , 0);
+	  }
+   
 })
 
 let btnsubmit =document.getElementById('submit');
@@ -164,19 +176,22 @@ checkexamcode.addEventListener('keyup', () =>{
            // get data to upload
            let qcode = localStorage.getItem('quizcode');
 	 let qtitle = localStorage.getItem('quiztitle');
+	 let qnumber = localStorage.getItem('questionnumber');
 	 let qustion = localStorage.getItem('qustion');
 	 let answer1 = localStorage.getItem('answer1');
 	 let answer2 = localStorage.getItem('answer2');
 	 let answer3 = localStorage.getItem('answer3');
 	 let correctanswer = localStorage.getItem('correctanswer');
+	 
 
 			// upload data to realtime database
-		firebase.database().ref('QuizQuestions/' + qcode).set({
+		firebase.database().ref('QuizQuestions/' + qcode + qnumber).set({
 
 
 
       QuizCode: qcode,
       QuizTitle: qtitle,
+      QuestionNumber: qnumber,
       Quiz: qustion,
       AnswerOne: answer1,
       AnswerTwo: answer2,
@@ -188,9 +203,11 @@ checkexamcode.addEventListener('keyup', () =>{
   if (error) {
     // The write failed...
      alert('Upload Faled');
+     console.log(error.message);
     
   } else {
   	alert('Uploaded successfuly');
+
   }
   } );
 
