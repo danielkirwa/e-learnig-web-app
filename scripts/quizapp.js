@@ -7,6 +7,10 @@ let btnbackhome = document.getElementById('backhome');
 
 let btnstartquiz = document.getElementById('startquiz');
  btnstartquiz.addEventListener('click', () =>{
+  // get questions  from database
+   
+
+
  	btnstartquiz.style.display = "none";
  	document.getElementById('submit').style.display = "block";
  	localStorage.setItem('quizstarted', 1);

@@ -66,7 +66,9 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 				Just started <br
 				<span>Level :</span>
 			<span> ${selectedlevel}</span <br>
-			<button id="openquiz">open Quiz</button>
+			<button id="openquizup">open Quiz</button>
+			<br>
+			<a href="quizapp.html">Open Quiz</a> 
 			</p>
 		 </div><br>
 	  `
@@ -76,9 +78,15 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 	 	 enrollform.style.display ="none";
 })
 
+let newopen = document.getElementById('openquizup');
  openquiz.addEventListener('click' , () => {
  	window.location.href= 'quizapp.html';
+ 	alert('helloew');
  })
+  function openup(argument) {
+  	// body...window.location.href= 'quizapp.html';
+  	 	alert('helloew');
+  }
 
 btnlogout.addEventListener('click' , () =>{
 	    	auth.signOut();
