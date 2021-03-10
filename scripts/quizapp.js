@@ -3,11 +3,50 @@
 var studentscore = document.getElementById('scoredmarks');
 let usernamedisplay = document.getElementById('logedinusername');
 let btnbackhome = document.getElementById('backhome');
-
-
 let btnstartquiz = document.getElementById('startquiz');
+let txtquizholder = document.getElementById('quizholder');
+let txtquizanswer1 = document.getElementById('ans1');
+let txtquizanswer2 = document.getElementById('ans2');
+let txtquizanswer3 = document.getElementById('ans3');
+let txtquiznumber = document.getElementById('quizno');
+let newcorrectanswer,newanswer3,newanswer2,newanswer1,newquestionnumber,newquestion;
+
+
  btnstartquiz.addEventListener('click', () =>{
   // get questions  from database
+  let questionnumber = localStorage.getItem('quizcode');
+    
+    questionnumber = parseInt(questionnumber);
+    console.log(typeof questionnumber + " " + questionnumber);
+    firebase.database().ref('QuizQuestions/' + questionnumber).on('value',function(snapshot){
+    try{
+ 
+      newquestion = snapshot.val().Quiz;
+      newquestionnumber = snapshot.val().QuestionNumber;
+      newanswer1 = snapshot.val().AnswerOne;
+      newanswer2 = snapshot.val().AnswerTwo;
+      newanswer3 = snapshot.val().AnswerThree;
+      newcorrectanswer = snapshot.val().CorrectAnswer;
+      
+      txtquizholder.innerHTML = newquestion;
+      txtquizanswer1.innerHTML = newanswer1;
+      txtquizanswer2.innerHTML = newanswer2;
+      txtquizanswer3.innerHTML = newanswer3;
+      txtquiznumber.innerHTML = newcorrectanswer;
+
+      localStorage.setItem('newquestion',newquestion );
+      localStorage.setItem('newquestionnumber',newquestionnumber );
+      localStorage.setItem('newanswer1',newanswer1 );
+      localStorage.setItem('newanswer2',newanswer2 );
+      localStorage.setItem('newanswer3',newanswer3 );
+      
+
+      
+  }catch(err){
+    alert(err);
+
+  }
+  })
    
 
 
@@ -16,6 +55,8 @@ let btnstartquiz = document.getElementById('startquiz');
  	localStorage.setItem('quizstarted', 1);
  	localStorage.setItem('studentscore', 0);
  })
+
+
  function checkifquizstarted() {
  	// body...
  	var startedquizcode = localStorage.getItem('quizstarted');
@@ -34,33 +75,56 @@ let btnstartquiz = document.getElementById('startquiz');
  checkifquizstarted();
 
 
- // now populate quiz
 
-function populatequiz(){
 
-	 let quizdisplay = document.getElementById('quizholder');
-	 let ansdisplay1 = document.getElementById('ans1');
-	 let ansdisplay2 = document.getElementById('ans2');
-	 let ansdisplay3 = document.getElementById('ans3');
 
-       
-        let q = localStorage.getItem('qustion');
-        let a1 = localStorage.getItem('answer1');
-        let a2 = localStorage.getItem('answer2');
-        let a3 = localStorage.getItem('answer3');
-	  quizdisplay.innerHTML = q;
-	  ansdisplay1.innerHTML = a1;
-	  ansdisplay2.innerHTML = a2;
-	  ansdisplay3.innerHTML = a3;
-}
-populatequiz()
 
 let btnsubmit =document.getElementById('submit');
 btnsubmit.addEventListener('click', () =>{
    
+   // fetch next question
+/*let countconstant = 1;
 
 
-	var corectanswercode = localStorage.getItem('correctanswer');
+   let questionnumber = localStorage.getItem('quizcode');
+    
+    questionnumber = parseInt(questionnumber);
+     questionnumber = questionnumber + countconstant;
+    console.log(typeof questionnumber + " " + questionnumber);
+    firebase.database().ref('QuizQuestions/' + questionnumber).on('value',function(snapshot){
+    try{
+ 
+      newquestion = snapshot.val().Quiz;
+      newquestionnumber = snapshot.val().QuestionNumber;
+      newanswer1 = snapshot.val().AnswerOne;
+      newanswer2 = snapshot.val().AnswerTwo;
+      newanswer3 = snapshot.val().AnswerThree;
+      newcorrectanswer = snapshot.val().CorrectAnswer;
+      
+      txtquizholder.innerHTML = newquestion;
+      txtquizanswer1.innerHTML = newanswer1;
+      txtquizanswer2.innerHTML = newanswer2;
+      txtquizanswer3.innerHTML = newanswer3;
+      txtquiznumber.innerHTML = newcorrectanswer;
+
+      localStorage.setItem('newquestion',newquestion );
+      localStorage.setItem('newquestionnumber',newquestionnumber );
+      localStorage.setItem('newanswer1',newanswer1 );
+      localStorage.setItem('newanswer2',newanswer2 );
+      localStorage.setItem('newanswer3',newanswer3 );
+      
+
+      
+  }catch(err){
+    alert(err);
+
+  }
+  })*/
+
+
+
+
+	var corectanswercode = newcorrectanswer;
 	   var correctanswer = document.forms[0];
 	   var score = "";
 	   var totalscore = "";
@@ -96,23 +160,24 @@ function retainstudentmarks() {
 }
 retainstudentmarks();
 
- function keeppopulatedquiz() {
- 	// body...
- 	let quizdisplay = document.getElementById('quizholder');
-	 let ansdisplay1 = document.getElementById('ans1');
-	 let ansdisplay2 = document.getElementById('ans2');
-	 let ansdisplay3 = document.getElementById('ans3');
+// retain quiz 
+function populatequiz(){
+
        
-        let q = localStorage.getItem('qustion');
-        let a1 = localStorage.getItem('answer1');
-        let a2 = localStorage.getItem('answer2');
-        let a3 = localStorage.getItem('answer3');
-	  quizdisplay.innerHTML = q;
-	  ansdisplay1.innerHTML = a1;
-	  ansdisplay2.innerHTML = a2;
-	  ansdisplay3.innerHTML = a3;
- }
- keeppopulatedquiz();
+        let q = localStorage.getItem('newquestion');
+        let a1 = localStorage.getItem('newanswer1');
+        let a2 = localStorage.getItem('newanswer2');
+        let a3 = localStorage.getItem('newanswer3');
+        let qn = localStorage.getItem('newquestionnumber');
+    
+      txtquizholder.innerHTML = q;
+      txtquizanswer1.innerHTML = a1;
+      txtquizanswer2.innerHTML = a2;
+      txtquizanswer3.innerHTML = a3;
+      txtquiznumber.innerHTML = qn;
+       console.log(q)
+}
+populatequiz()
 
 
   // back home button

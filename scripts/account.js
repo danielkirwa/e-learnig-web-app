@@ -10,6 +10,7 @@ let btnsubmitenroll = document.getElementById('btnsubmitenroll');
 let blurbody = document.getElementById('opacity');
 let btnopenquiz = document.getElementById('openquiz');
 let btnlogout = document.getElementById('btnlogout');
+let quizcode ;
 
 btncloseenrollpopup.addEventListener('click', () => {
 	
@@ -63,12 +64,10 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 			</div><br>
 			 <label>Score : 0.0</label>
 			<p>
-				Just started <br
+				Just started <br>
 				<span>Level :</span>
-			<span> ${selectedlevel}</span <br>
-			<button id="openquizup">open Quiz</button>
-			<br>
-			<a href="quizapp.html">Open Quiz</a> 
+			<span> ${selectedlevel}</span> <br><br>
+			<button id="openquizup" onclick="openquizpage()">open Quiz</button> 
 			</p>
 		 </div><br>
 	  `
@@ -78,14 +77,17 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 	 	 enrollform.style.display ="none";
 })
 
-let newopen = document.getElementById('openquizup');
- openquiz.addEventListener('click' , () => {
- 	window.location.href= 'quizapp.html';
- 	alert('helloew');
- })
-  function openup(argument) {
-  	// body...window.location.href= 'quizapp.html';
-  	 	alert('helloew');
+  function openquizpage() {
+  	// body...
+
+  		let courseid = document.getElementById('courseid').innerHTML;
+  		let quizno = document.getElementById('quizno').innerHTML;
+ 
+  		 quizcode = courseid + quizno;
+  		  console.log(quizcode);
+  		   localStorage.setItem('quizcode' , quizcode);
+  	 	alert('helloew' + quizcode);
+  	 	window.location.href= 'quizapp.html';
   }
 
 btnlogout.addEventListener('click' , () =>{
