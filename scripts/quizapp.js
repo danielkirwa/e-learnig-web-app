@@ -10,7 +10,7 @@ let txtquizanswer2 = document.getElementById('ans2');
 let txtquizanswer3 = document.getElementById('ans3');
 let txtquiznumber = document.getElementById('quizno');
 let newcorrectanswer,newanswer3,newanswer2,newanswer1,newquestionnumber,newquestion;
-
+ let radioselected = document.getElementById('answerbutton')
 
  btnstartquiz.addEventListener('click', () =>{
   // get questions  from database
@@ -20,7 +20,7 @@ let newcorrectanswer,newanswer3,newanswer2,newanswer1,newquestionnumber,newquest
     console.log(typeof questionnumber + " " + questionnumber);
     firebase.database().ref('QuizQuestions/' + questionnumber).on('value',function(snapshot){
     try{
- 
+        //radioselected.checked = false;
       newquestion = snapshot.val().Quiz;
       newquestionnumber = snapshot.val().QuestionNumber;
       newanswer1 = snapshot.val().AnswerOne;
@@ -77,6 +77,7 @@ let newcorrectanswer,newanswer3,newanswer2,newanswer1,newquestionnumber,newquest
 
 function fetchnextquiz() {
   // body...
+  //radioselected.checked = false;
   let countconstant = 1;
 
 
@@ -153,10 +154,12 @@ btnsubmit.addEventListener('click', () =>{
     if (correctanswer[corectanswercode].checked) {
       // corect answer selected
       score = 1;
+      //radioselected.checked = false;
       fetchnextquiz();
     }else{
     	// wrong answer selected
     	score = 0;
+     // radioselected.checked = false;
       fetchnextquiz();
     }
   }
@@ -183,6 +186,7 @@ retainstudentmarks();
 // retain quiz 
 function populatequiz(){
 
+//radioselected.checked = false;
        
         let q = localStorage.getItem('newquestion');
         let a1 = localStorage.getItem('newanswer1');
@@ -195,7 +199,8 @@ function populatequiz(){
       txtquizanswer2.innerHTML = a2;
       txtquizanswer3.innerHTML = a3;
       txtquiznumber.innerHTML = qn;
-       console.log(q)
+     
+
 }
 populatequiz()
 
