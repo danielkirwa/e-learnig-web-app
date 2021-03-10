@@ -75,15 +75,9 @@ let newcorrectanswer,newanswer3,newanswer2,newanswer1,newquestionnumber,newquest
  checkifquizstarted();
 
 
-
-
-
-
-let btnsubmit =document.getElementById('submit');
-btnsubmit.addEventListener('click', () =>{
-   
-   // fetch next question
-/*let countconstant = 1;
+function fetchnextquiz() {
+  // body...
+  let countconstant = 1;
 
 
    let questionnumber = localStorage.getItem('quizcode');
@@ -105,13 +99,14 @@ btnsubmit.addEventListener('click', () =>{
       txtquizanswer1.innerHTML = newanswer1;
       txtquizanswer2.innerHTML = newanswer2;
       txtquizanswer3.innerHTML = newanswer3;
-      txtquiznumber.innerHTML = newcorrectanswer;
+      txtquiznumber.innerHTML = newquestionnumber;
 
       localStorage.setItem('newquestion',newquestion );
       localStorage.setItem('newquestionnumber',newquestionnumber );
       localStorage.setItem('newanswer1',newanswer1 );
       localStorage.setItem('newanswer2',newanswer2 );
       localStorage.setItem('newanswer3',newanswer3 );
+      localStorage.setItem('quizcode', questionnumber)
       
 
       
@@ -119,9 +114,32 @@ btnsubmit.addEventListener('click', () =>{
     alert(err);
 
   }
-  })*/
+  })
+}
 
+// on reload 
+function fetchcurrentquizonreload() {
+  // body...
+ let questionnumber = localStorage.getItem('quizcode');
+    
+    questionnumber = parseInt(questionnumber);
+    firebase.database().ref('QuizQuestions/' + questionnumber).on('value',function(snapshot){
+    try{
+ 
+      newcorrectanswer = snapshot.val().CorrectAnswer;
+    
+  }catch(err){
+    alert(err);
 
+  }
+  })
+}
+
+fetchcurrentquizonreload();
+
+let btnsubmit =document.getElementById('submit');
+btnsubmit.addEventListener('click', () =>{
+   
 
 
 	var corectanswercode = newcorrectanswer;
@@ -135,9 +153,11 @@ btnsubmit.addEventListener('click', () =>{
     if (correctanswer[corectanswercode].checked) {
       // corect answer selected
       score = 1;
+      fetchnextquiz();
     }else{
     	// wrong answer selected
     	score = 0;
+      fetchnextquiz();
     }
   }
 
