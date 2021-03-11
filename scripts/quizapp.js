@@ -102,19 +102,39 @@ function fetchnextquiz() {
       txtquizanswer3.innerHTML = newanswer3;
       txtquiznumber.innerHTML = newquestionnumber;
 
+     
+
+      if (snapshot.val() == null) {
+        alert('quiz complete')
+      }else{
       localStorage.setItem('newquestion',newquestion );
       localStorage.setItem('newquestionnumber',newquestionnumber );
       localStorage.setItem('newanswer1',newanswer1 );
       localStorage.setItem('newanswer2',newanswer2 );
       localStorage.setItem('newanswer3',newanswer3 );
       localStorage.setItem('quizcode', questionnumber)
+      }
       
 
       
   }catch(err){
-    alert(err);
+    alert(typeof err);
+    console.log(err.message);
+     /*if (snapshot.val() == null) {
+        alert('quiz complete')
+      }else{
+      
+      }*/
 
   }
+
+   if (snapshot.val() == null) {
+     
+        alert('quiz complete')
+      }
+
+
+
   })
 }
 

@@ -91,6 +91,7 @@ btnsubmitenroll.addEventListener('click' , ()  => {
   }
 
 btnlogout.addEventListener('click' , () =>{
+	 localStorage.clear();
 	    	auth.signOut();
     	alert("signed out");
 })
