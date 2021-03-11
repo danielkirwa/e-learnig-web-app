@@ -10,7 +10,11 @@ let txtquizanswer2 = document.getElementById('ans2');
 let txtquizanswer3 = document.getElementById('ans3');
 let txtquiznumber = document.getElementById('quizno');
 let newcorrectanswer,newanswer3,newanswer2,newanswer1,newquestionnumber,newquestion;
- let radioselected = document.getElementById('answerbutton')
+ let radioselected = document.getElementById('answerbutton');
+ let snapshoterr ;
+ let btnsubmit =document.getElementById('submit');
+ let answerform = document.getElementById('answersform');
+
 
  btnstartquiz.addEventListener('click', () =>{
   // get questions  from database
@@ -103,39 +107,56 @@ function fetchnextquiz() {
       txtquiznumber.innerHTML = newquestionnumber;
 
      
-
-      if (snapshot.val() == null) {
-        alert('quiz complete')
-      }else{
       localStorage.setItem('newquestion',newquestion );
       localStorage.setItem('newquestionnumber',newquestionnumber );
       localStorage.setItem('newanswer1',newanswer1 );
       localStorage.setItem('newanswer2',newanswer2 );
       localStorage.setItem('newanswer3',newanswer3 );
       localStorage.setItem('quizcode', questionnumber)
-      }
+    
       
 
       
   }catch(err){
-    alert(typeof err);
+    //alert(typeof err);
     console.log(err.message);
-     /*if (snapshot.val() == null) {
-        alert('quiz complete')
-      }else{
-      
-      }*/
+ 
+  } 
+  if (snapshot.val() == null) {
+       let score =  localStorage.getItem('studentscore');
+        let totalmark =  localStorage.getItem('newquestionnumber');
+        let passmark ,comment,color;
+         score = parseInt(score);
+         totalmark = parseInt(totalmark);
+          passmark = (totalmark / score)* 100 - 100 ;
+           passmark = passmark.toFixed(0);
+          localStorage.setItem('studentTotalScore', passmark);
+          if (passmark >= 80) {
+            comment = "Congratulation ! ! ";
+            color = "green";
+          }else{
+            comment = "Sorry you failed ! ! ";
+            color = "red";
+          }
+    radioselected.checked = false;
+    answerform.style.display = "none";
+          txtquizholder.innerHTML =`
+    <h3 style="color: ${color}"> ${comment}</h3><br>
+    <p>
+    Your score is : ${passmark} %  <br>
+    </p>
+      <label>passmark is 80% </label>
+    `;
+    btnsubmit.style.display = "none";
+
+     localStorage.setItem('complete', Complete);
 
   }
 
-   if (snapshot.val() == null) {
-     
-        alert('quiz complete')
-      }
-
-
-
+  
   })
+
+ 
 }
 
 // on reload 
@@ -158,7 +179,7 @@ function fetchcurrentquizonreload() {
 
 fetchcurrentquizonreload();
 
-let btnsubmit =document.getElementById('submit');
+
 btnsubmit.addEventListener('click', () =>{
    
 
@@ -176,11 +197,13 @@ btnsubmit.addEventListener('click', () =>{
       score = 1;
       //radioselected.checked = false;
       fetchnextquiz();
+    
     }else{
     	// wrong answer selected
     	score = 0;
      // radioselected.checked = false;
       fetchnextquiz();
+   
     }
   }
 
@@ -213,12 +236,34 @@ function populatequiz(){
         let a2 = localStorage.getItem('newanswer2');
         let a3 = localStorage.getItem('newanswer3');
         let qn = localStorage.getItem('newquestionnumber');
-    
+        let btn =  localStorage.getItem('complete');
+        let sts = localStorage.getItem('studentTotalScore');
+        console.log(typeof btn);
+         if (btn == undefined) {
       txtquizholder.innerHTML = q;
       txtquizanswer1.innerHTML = a1;
       txtquizanswer2.innerHTML = a2;
       txtquizanswer3.innerHTML = a3;
       txtquiznumber.innerHTML = qn;
+  }else{
+  let passmark = localStorage.setItem('studentTotalScore');
+          if (passmark >= 80) {
+            comment = "Congratulation ! ! ";
+            color = "green";
+          }else{
+            comment = "Sorry you failed ! ! ";
+            color = "red";
+          }
+    radioselected.checked = false;
+    answerform.style.display = "none";
+          txtquizholder.innerHTML =`
+    <h3 style="color: ${color}"> ${comment}</h3><br>
+    <p>
+    Your score is : ${passmark} %  <br>
+    </p>
+      <label>passmark is 80% </label>
+    `;
+  }
      
 
 }
