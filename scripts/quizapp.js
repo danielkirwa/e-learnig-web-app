@@ -36,7 +36,7 @@ let newcorrectanswer,newanswer3,newanswer2,newanswer1,newquestionnumber,newquest
       txtquizanswer1.innerHTML = newanswer1;
       txtquizanswer2.innerHTML = newanswer2;
       txtquizanswer3.innerHTML = newanswer3;
-      txtquiznumber.innerHTML = newcorrectanswer;
+      txtquiznumber.innerHTML = newquestionnumber;
 
       localStorage.setItem('newquestion',newquestion );
       localStorage.setItem('newquestionnumber',newquestionnumber );
@@ -128,8 +128,9 @@ function fetchnextquiz() {
         let passmark ,comment,color;
          score = parseInt(score);
          totalmark = parseInt(totalmark);
-          passmark = (totalmark / score)* 100 - 100 ;
+          passmark = (score / totalmark)* 100 ;
            passmark = passmark.toFixed(0);
+           console.log(passmark);
           localStorage.setItem('studentTotalScore', passmark);
           if (passmark >= 80) {
             comment = "Congratulation ! ! ";
@@ -142,14 +143,14 @@ function fetchnextquiz() {
     answerform.style.display = "none";
           txtquizholder.innerHTML =`
     <h3 style="color: ${color}"> ${comment}</h3><br>
-    <p>
+    <p style="font-size: 20px ; color: ${color}">
     Your score is : ${passmark} %  <br>
     </p>
       <label>passmark is 80% </label>
     `;
     btnsubmit.style.display = "none";
 
-     localStorage.setItem('complete', Complete);
+     localStorage.setItem('complete', "Complete");
 
   }
 
@@ -238,7 +239,7 @@ function populatequiz(){
         let qn = localStorage.getItem('newquestionnumber');
         let btn =  localStorage.getItem('complete');
         let sts = localStorage.getItem('studentTotalScore');
-        console.log(typeof btn);
+        console.log(typeof btn + "btn");
          if (btn == undefined) {
       txtquizholder.innerHTML = q;
       txtquizanswer1.innerHTML = a1;
@@ -246,7 +247,7 @@ function populatequiz(){
       txtquizanswer3.innerHTML = a3;
       txtquiznumber.innerHTML = qn;
   }else{
-  let passmark = localStorage.setItem('studentTotalScore');
+  let passmark = localStorage.getItem('studentTotalScore');
           if (passmark >= 80) {
             comment = "Congratulation ! ! ";
             color = "green";
@@ -258,11 +259,12 @@ function populatequiz(){
     answerform.style.display = "none";
           txtquizholder.innerHTML =`
     <h3 style="color: ${color}"> ${comment}</h3><br>
-    <p>
+    <p style="font-size: 20px ; color: ${color}">
     Your score is : ${passmark} %  <br>
     </p>
       <label>passmark is 80% </label>
     `;
+    btnsubmit.style.display = "none";
   }
      
 
