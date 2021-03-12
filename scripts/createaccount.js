@@ -319,10 +319,10 @@ let btncallloinform = document.getElementById('btncalllogin');
     auth.onAuthStateChanged(function(user){
     	if(user){
     		var email = user.email;
-    		alert("Active user" + email);
+    		//alert("Active user" + email);
         window.location.href='accesedacc.html';
     	}else{
-    		alert("No Active user");
+    		//alert("No Active user");
     	}
     })
 

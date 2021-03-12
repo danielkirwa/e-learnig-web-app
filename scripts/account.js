@@ -100,11 +100,11 @@ btnlogout.addEventListener('click' , () =>{
 auth.onAuthStateChanged(function(user){
       if(user){
         var email = user.email;
-        alert("Active user" + email);
-         console.log(email);
+        //alert("Active user" + email);
+        // console.log(email);
          usernamedisplay.innerHTML = email + " ";
       }else{
-        alert("No Active user");
+        //alert("No Active user");
         window.location.href='registration.html';
       }
     })
