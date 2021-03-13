@@ -75,7 +75,7 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 				Just started <br>
 				<span>Level :</span>
 			<span> ${selectedlevel}</span> <br><br>
-			<button id="openquizup" onclick="openquizpage()">open Quiz</button> 
+			<button id="openquiz">open Quiz</button> 
 			</p>
 		 </div><br>
 	  `
@@ -84,6 +84,14 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 	 	 blurbody.style.opacity = "1";
 	 	 enrollform.style.display ="none";
 })
+
+
+for (var i = 0 ; i < btnopenquiz.length ; i++) {
+	btnopenquiz[i].addEventListener('click', () =>{
+		console.log(i);
+	})
+	console.log(i);
+}
 
   function openquizpage() {
   	// body...
@@ -94,7 +102,19 @@ btnsubmitenroll.addEventListener('click' , ()  => {
   		 quizcode = courseid + quizno;
   		  console.log(quizcode);
   		   localStorage.setItem('quizcode' , quizcode);
-  	 	alert('helloew' + quizcode);
+  	 	alert('Open Quiz ' + quizcode);
+  	 	window.location.href= 'quizapp.html';
+  }
+    function openquizpage2() {
+  	// body...
+
+  		let courseid = document.getElementById('courseid2').innerHTML;
+  		let quizno = document.getElementById('quizno').innerHTML;
+ 
+  		 quizcode = courseid + quizno;
+  		  console.log(quizcode);
+  		   localStorage.setItem('quizcode' , quizcode);
+  	 	alert('Open Quiz ' + quizcode);
   	 	window.location.href= 'quizapp.html';
   }
 
@@ -112,7 +132,7 @@ auth.onAuthStateChanged(function(user){
         // console.log(email);
          usernamedisplay.innerHTML = email + " ";
          
-         indexedEmail = email.replace(".", "@")
+        /* indexedEmail = email.replace(".", "@")
           // get user details for profile
 
           firebase.database().ref('studentusers/' + indexedEmail).on('value', function (snapshort) {
@@ -123,7 +143,7 @@ auth.onAuthStateChanged(function(user){
           	}catch(err){
           		alert(err.message);
           	}
-          })
+          })*/
       }else{
         //alert("No Active user");
         window.location.href='registration.html';
