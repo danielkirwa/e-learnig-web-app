@@ -5,7 +5,8 @@
 let regform = document.querySelector('.regform');
   let btnshowpassword1 = document.getElementById('showpassword1');
  let btnshowpassword2 = document.getElementById('showpassword2');
-let firstNane,middleName,lastName,intrestedArea,phoneNumber,signupEmail,signupPassword,confirmSignupPassword;
+let firstNane,studentcode,middleName,lastName,intrestedArea,phoneNumber,
+signupEmail,signupPassword,confirmSignupPassword,indexedEmail;
 let loginusername,loginpassword;
 
 
@@ -164,16 +165,16 @@ let btncallloinform = document.getElementById('btncalllogin');
 
     function readyDetails() {
     	// body...
-    	firstNane = document.getElementById('txtfirstname').value;
-    	middleName = document.getElementById('txtmiddlename').value;
-    	lastName = document.getElementById('txtlastname').value;
+    	firstNane = document.getElementById('txtfirstname').value.toUpperCase();
+    	middleName = document.getElementById('txtmiddlename').value.toUpperCase();
+    	lastName = document.getElementById('txtlastname').value.toUpperCase();
     	signupEmail = document.getElementById('signupemail').value;
     	let arrayIntrestedArea = document.getElementById('cmbspecialization');
     	intrestedArea = arrayIntrestedArea.options[arrayIntrestedArea.selectedIndex].text;
     	phoneNumber = document.getElementById('txtphone').value;
     	signupPassword = document.getElementById('signuppassword').value;
     	confirmSignupPassword = document.getElementById('confirmsignuppassword').value;
-
+    
     		/*console.log(firstNane);
     		console.log(middleName);
     		console.log(lastName);
@@ -209,16 +210,17 @@ let btncallloinform = document.getElementById('btncalllogin');
     }else{
        if (signupPassword == confirmSignupPassword ) {
       // add data to realtime database
+      indexedEmail = signupEmail.replace(".", "@");
+      //console.log(signupEmail);
 
-  firebase.database().ref('studentusers/' + phoneNumber).set({
+firebase.database().ref('studentusers/' + indexedEmail).set({
 
       FirstName: firstNane,
       MiddleName: middleName,
       LastName: lastName,
       IntrestedArea: intrestedArea,
-      Email: signupEmail,
+      Email: indexedEmail,
       PhoneNumber: phoneNumber
-
 
     },  (error) => {
   if (error) {

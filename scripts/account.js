@@ -11,6 +11,9 @@ let blurbody = document.getElementById('opacity');
 let btnopenquiz = document.getElementById('openquiz');
 let btnlogout = document.getElementById('btnlogout');
 let quizcode ;
+let indexedEmail;
+let fetchedphone,fetchedfname,fetchedmname,fetchedlname,fetchedintrest;
+
 
 btncloseenrollpopup.addEventListener('click', () => {
 	
@@ -45,13 +48,18 @@ btnaddactivity.addEventListener('click', () => {
 	enrollform.style.display ="block";
 	blurbody.style.opacity = "0.4";
 	
+	indexedEmail = firebase.auth().currentUser.email;
+	indexedEmail = indexedEmail.replace(".", "@");
+	console.log(indexedEmail);
+	
 })
 
 btnsubmitenroll.addEventListener('click' , ()  => {
 	let enrollcourse = document.getElementById('coursetoenroll');
-	var selectedcourse = enrollcourse.options[enrollcourse.selectedIndex].value;
+	var selectedcourse = enrollcourse.options[enrollcourse.selectedIndex].text;
+	var selectedcoursecode = enrollcourse.options[enrollcourse.selectedIndex].value;
 	let skilllevel = document.getElementById('skilllevel');
-	var selectedlevel = skilllevel.options[skilllevel.selectedIndex].value;
+	var selectedlevel = skilllevel.options[skilllevel.selectedIndex].text;
 
 	 console.log(selectedcourse + selectedlevel);
 	let myctivityframe = document.querySelector('.enrolled');
@@ -59,7 +67,7 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 	  		<div class="enrolled-activity">
 		 	<div class="activitydisplay">
 				<center>
-					${selectedcourse}
+				<span id="coursecode">${selectedcoursecode}</span>	${selectedcourse}
 				</center>
 			</div><br>
 			 <label>Score : 0.0</label>
@@ -103,6 +111,19 @@ auth.onAuthStateChanged(function(user){
         //alert("Active user" + email);
         // console.log(email);
          usernamedisplay.innerHTML = email + " ";
+         
+         indexedEmail = email.replace(".", "@")
+          // get user details for profile
+
+          firebase.database().ref('studentusers/' + indexedEmail).on('value', function (snapshort) {
+          	// body...
+          	try{
+          		fetchedphone = snapshort.val().PhoneNumber;
+          		console.log(fetchedphone)
+          	}catch(err){
+          		alert(err.message);
+          	}
+          })
       }else{
         //alert("No Active user");
         window.location.href='registration.html';
