@@ -19,9 +19,8 @@ let newcorrectanswer,newanswer3,newanswer2,newanswer1,newquestionnumber,newquest
  btnstartquiz.addEventListener('click', () =>{
   // get questions  from database
   let questionnumber = localStorage.getItem('quizcode');
-    
-    questionnumber = parseInt(questionnumber);
-    console.log(typeof questionnumber + " " + questionnumber);
+
+
     firebase.database().ref('QuizQuestions/' + questionnumber).on('value',function(snapshot){
     try{
         //radioselected.checked = false;
@@ -61,18 +60,31 @@ let newcorrectanswer,newanswer3,newanswer2,newanswer1,newquestionnumber,newquest
  })
 
 
+ function termandconditions() {
+   // body...
+   txtquizholder.innerHTML = "Agree that will do honest work";
+      txtquizanswer1.innerHTML = "Yes, I agree";
+      txtquizanswer2.innerHTML = "No, I do not agree";
+      txtquizanswer3.innerHTML = "Not sure";
+     
+ }
+
+
+
  function checkifquizstarted() {
  	// body...
  	var startedquizcode = localStorage.getItem('quizstarted');
  	if (startedquizcode == undefined) {
  		localStorage.setItem('quizstarted', 0);
- 		document.getElementById('submit').style.display = "none";
+ 		btnsubmit.style.display = "none";
+    termandconditions();
  	}else{
  		if (startedquizcode == 1) {
- 			document.getElementById('submit').style.display = "block";
+ 			btnsubmit.style.display = "block";
  			btnstartquiz.style.display = "none";
  		}else{
- 			document.getElementById('submit').style.display = "none";
+ 			btnsubmit.style.display = "none";
+      termandconditions() ;
  		}
  	}
  }
@@ -231,7 +243,7 @@ retainstudentmarks();
 function populatequiz(){
 
 //radioselected.checked = false;
-       
+       termandconditions();
         let q = localStorage.getItem('newquestion');
         let a1 = localStorage.getItem('newanswer1');
         let a2 = localStorage.getItem('newanswer2');
@@ -240,7 +252,11 @@ function populatequiz(){
         let btn =  localStorage.getItem('complete');
         let sts = localStorage.getItem('studentTotalScore');
         console.log(typeof btn + "btn");
-         if (btn == undefined) {
+
+        if(q == undefined){
+          termandconditions();
+        }else {
+          if (btn == undefined) {
       txtquizholder.innerHTML = q;
       txtquizanswer1.innerHTML = a1;
       txtquizanswer2.innerHTML = a2;
@@ -266,6 +282,8 @@ function populatequiz(){
     `;
     btnsubmit.style.display = "none";
   }
+        }
+         
      
 
 }
