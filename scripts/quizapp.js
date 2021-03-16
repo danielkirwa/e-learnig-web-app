@@ -62,11 +62,8 @@ let newcorrectanswer,newanswer3,newanswer2,newanswer1,newquestionnumber,newquest
 
  function termandconditions() {
    // body...
-   txtquizholder.innerHTML = "Agree that will do honest work";
-      txtquizanswer1.innerHTML = "Yes, I agree";
-      txtquizanswer2.innerHTML = "No, I do not agree";
-      txtquizanswer3.innerHTML = "Not sure";
-     
+   txtquizholder.innerHTML = "Honest work is required and you only have one attempt";
+   
  }
 
 

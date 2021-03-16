@@ -55,6 +55,7 @@ btnaddactivity.addEventListener('click', () => {
 })
 
 btnsubmitenroll.addEventListener('click' , ()  => {
+
 	let enrollcourse = document.getElementById('coursetoenroll');
 	var selectedcourse = enrollcourse.options[enrollcourse.selectedIndex].text;
 	var selectedcoursecode = enrollcourse.options[enrollcourse.selectedIndex].value;
@@ -75,7 +76,7 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 				Just started <br>
 				<span>Level :</span>
 			<span> ${selectedlevel}</span> <br><br>
-			<button id="openquiz">open Quiz</button> 
+			<button id="openquiz" onclick="openquizpage()">Open Quiz </button>
 			</p>
 		 </div><br>
 	  `
@@ -83,15 +84,9 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 	 	 alert("added");
 	 	 blurbody.style.opacity = "1";
 	 	 enrollform.style.display ="none";
+
+	 	
 })
-
-
-for (var i = 0 ; i < btnopenquiz.length ; i++) {
-	btnopenquiz[i].addEventListener('click', () =>{
-		console.log(i);
-	})
-	console.log(i);
-}
 
   function openquizpage() {
   	// body...
