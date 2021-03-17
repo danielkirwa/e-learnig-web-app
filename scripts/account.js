@@ -50,7 +50,37 @@ callpopupmenu.addEventListener('click' , () =>{
 btnaddactivity.addEventListener('click', () => {
 	enrollform.style.display ="block";
 	blurbody.style.opacity = "0.4";
-	
+
+	let wc = localStorage.getItem('webcode');
+	let jc = localStorage.getItem('javacode');
+	let pc = localStorage.getItem('pythoncode');
+	let ac = localStorage.getItem('androidcode');
+	 
+	 // disable already enrolled course
+document.getElementById("coursetoenroll").options[0].selected = true;
+	 	if (wc == undefined) {
+	}else{
+		document.getElementById("coursetoenroll").options[1].disabled = true;		
+	}
+// second check
+		if (jc == undefined) {
+	}else{
+		document.getElementById("coursetoenroll").options[2].disabled = true;		
+	}
+// third check
+	if (pc == undefined) {
+	}else{
+		document.getElementById("coursetoenroll").options[3].disabled = true;		
+	}
+// forth check 
+	if (ac == undefined) {
+	}else{
+		document.getElementById("coursetoenroll").options[4].disabled = true;		
+	}
+
+    
+
+
 	indexedEmail = firebase.auth().currentUser.email;
 	indexedEmail = indexedEmail.replace(".", "@");
 	console.log(indexedEmail);
@@ -65,9 +95,6 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 	let skilllevel = document.getElementById('skilllevel');
 	var selectedlevel = skilllevel.options[skilllevel.selectedIndex].text;
 
-	console.log(selectedcourse);
-	console.log(selectedcoursecode);
-	console.log(selectedlevel);
 
 	if (selectedcoursecode == 100) {
 		displayweb.style.display = "block";
@@ -128,7 +155,7 @@ retaincoursedisplay() ;
   	// body...
 
   		let courseid = document.getElementById('courseid1').innerHTML;
-  		let quizno = document.getElementById('quizno1').innerHTML;
+  		let quizno = 1;
  
   		 quizcode = courseid + quizno;
   		  console.log(quizcode);
@@ -140,7 +167,7 @@ retaincoursedisplay() ;
   	// body...
 
   		let courseid = document.getElementById('courseid2').innerHTML;
-  		let quizno = document.getElementById('quizno2').innerHTML;
+  		let quizno = 1;
  
   		 quizcode = courseid + quizno;
   		  console.log(quizcode);
@@ -152,7 +179,7 @@ retaincoursedisplay() ;
   	// body...
 
   		let courseid = document.getElementById('courseid3').innerHTML;
-  		let quizno = document.getElementById('quizno3').innerHTML;
+  		let quizno = 1;
  
   		 quizcode = courseid + quizno;
   		  console.log(quizcode);
@@ -164,7 +191,7 @@ retaincoursedisplay() ;
   	// body...
 
   		let courseid = document.getElementById('courseid4').innerHTML;
-  		let quizno = document.getElementById('quizno4').innerHTML;
+  		let quizno =1;
  
   		 quizcode = courseid + quizno;
   		  console.log(quizcode);
