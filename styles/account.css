@@ -201,5 +201,28 @@ flex: 1 1 300px; /*  Stretching: */
   font-weight: bold;
    cursor: pointer;
 }
+#openquiz{
+  width: 85%;
+  margin-left: 4%;
+  padding: 5px 4px;
+  font-size: 24px;
+  border:  2px solid dodgerblue;
+  background: #fff;
+  border-radius: 5px;
+
+}
+#openquiz:hover{
+  width: 90%;
+  border:  2px solid dodgerblue;
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  color: dodgerblue;
+
+}
+/* --------------show enrolled courses--------------*/
+.div100, .div200, .div300, .div400{
+   display: none;
+}
 
 /*-------------------small screens ------------------*/
