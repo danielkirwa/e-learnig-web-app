@@ -88,6 +88,8 @@ document.getElementById("coursetoenroll").options[0].selected = true;
 })
 
 btnsubmitenroll.addEventListener('click' , ()  => {
+	indexedEmail = firebase.auth().currentUser.email;
+	indexedEmail = indexedEmail.replace(".", "@");
 
 	let enrollcourse = document.getElementById('coursetoenroll');
 	var selectedcourse = enrollcourse.options[enrollcourse.selectedIndex].text;
@@ -115,6 +117,19 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 
 	 	 blurbody.style.opacity = "1";
 	 	 enrollform.style.display ="none";
+
+	 	 // add selected course to database 
+	 	firebase.database().ref('studentcoursesweb/' + indexedEmail).set({
+  CourseName: selectedcourse,
+  CourseCode: selectedcoursecode,
+  EntryLevel : selectedlevel
+}, (error) => {
+  if (error) {
+    alert('Fail to added');
+  } else {
+    alert('Succefully added');
+  }
+});
 
 	 	
 })
@@ -213,19 +228,6 @@ auth.onAuthStateChanged(function(user){
         //alert("Active user" + email);
         // console.log(email);
          usernamedisplay.innerHTML = email + " ";
-         
-        /* indexedEmail = email.replace(".", "@")
-          // get user details for profile
-
-          firebase.database().ref('studentusers/' + indexedEmail).on('value', function (snapshort) {
-          	// body...
-          	try{
-          		fetchedphone = snapshort.val().PhoneNumber;
-          		console.log(fetchedphone)
-          	}catch(err){
-          		alert(err.message);
-          	}
-          })*/
       }else{
         //alert("No Active user");
         window.location.href='registration.html';

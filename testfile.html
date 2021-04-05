@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dynamic Elements and Event Targets</title>
+    <link rel="stylesheet" type="text/css" href="dom.css">
+</head>
+
+<body>
+
+  <form id="form">
+  <div>
+    <label for="txtName">Name</label>
+    <input id="txtName" name="txtName" type="text" />
+  </div>
+  <input type="submit" value="submit" />
+ 
+</form>
+    <script>
+      document.getElementById('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var name = document.getElementById('txtName').value;
+  var idElement = 'btnPrepend';
+  var html = `
+    <ul>
+      <li>${name}</li>
+    </ul>
+    <input type="button" value="prepend" id="${idElement}" />
+  `;
+  /* Insert the html into your DOM */
+  insertHTML('div', html);
+  /* Add an event listener after insert html */
+  addEvent(idElement);
+});
+
+const insertHTML = (tag = 'form', html, position = 'afterend', index = 0) => {
+  document.getElementsByTagName(tag)[index].insertAdjacentHTML(position, html);
+}
+const addEvent = (id, event = 'click') => {
+  document.getElementById(id).addEventListener(event, function() {
+    insertHTML('ul', '<li>Prepending data</li>', 'afterbegin')
+  });
+}
+        // end of my new test
+
+    </script>
+
+</body>
+
+</html>

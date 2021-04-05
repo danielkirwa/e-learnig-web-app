@@ -294,10 +294,19 @@ firebase.database().ref('studentusers/' + indexedEmail).set({
   })
   .catch((error) => {
     // Handle Errors here.
+    let Wrongpassworderror = 'The password is invalid or the user does not have a password.';
+    let nousererror = 'There is no user record corresponding to this identifier. The user may have been deleted.';
+    if (error.message == nousererror) {
+      alert('No such user please register');
+    }else if(error.message == Wrongpassworderror){
+      alert('Wrong password entered');
+    }else{
+       alert('An error occured');
+    }
    
-    alert(error.message);
     btnsigninnewuser.innerHTML = "Log In"
   });
+
 
 
     	/* auth.signInWithEmailAndPassword(loginusername,loginpassword)
