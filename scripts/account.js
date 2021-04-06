@@ -87,9 +87,36 @@ document.getElementById("coursetoenroll").options[0].selected = true;
 	
 })
 
+
+// select any enrolled courses
+/*console.log(indexedEmail);
+function getandroid() {
+	// body...
+	// select student course if any 
+      firebase.database().ref('studentcoursesandroid/'+ indexedEmail ).on('value' ,function(snapshot){
+        let coursecode = snapshot.val().CourseCode;
+        let courselevel = snapshot.val().EntryLevel;
+        let enrolldate = snapshot.val().EnrollDate;
+
+        localStorage.setItem('androidcode', coursecode);
+        localStorage.setItem('androidlevel', courselevel);
+        localStorage.setItem('androidenrolldate' , enrolldate)
+       })
+}
+getandroid();*/
+
 btnsubmitenroll.addEventListener('click' , ()  => {
 	indexedEmail = firebase.auth().currentUser.email;
 	indexedEmail = indexedEmail.replace(".", "@");
+
+	// get date of enrollment
+
+	 var newdate = new Date();
+  	var day = newdate.getDate();
+   var month = newdate.getMonth();
+    var year = newdate.getFullYear();
+     var enrolldate = day + "-" + month + "-" + year;
+
 
 	let enrollcourse = document.getElementById('coursetoenroll');
 	var selectedcourse = enrollcourse.options[enrollcourse.selectedIndex].text;
@@ -99,37 +126,108 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 
 
 	if (selectedcoursecode == 100) {
-		displayweb.style.display = "block";
-		localStorage.setItem('webcode', 100);
-	}else if (selectedcoursecode == 200) {
-		displayjava.style.display = "block";
-		localStorage.setItem('javacode', 200);
-	}else if (selectedcoursecode == 300) {
-		displaypython.style.display = "block";
-		localStorage.setItem('pythoncode', 300);
-	}else if (selectedcoursecode == 400) {
-		displayandroid.style.display = "block";
-		localStorage.setItem('androidcode', 400);
-	}else  {
-		alert('course not available');
-	}
 
-
-	 	 blurbody.style.opacity = "1";
-	 	 enrollform.style.display ="none";
-
-	 	 // add selected course to database 
+ // add selected course to database 
 	 	firebase.database().ref('studentcoursesweb/' + indexedEmail).set({
   CourseName: selectedcourse,
   CourseCode: selectedcoursecode,
-  EntryLevel : selectedlevel
+  EntryLevel : selectedlevel,
+  EnrollDate : enrolldate
 }, (error) => {
   if (error) {
     alert('Fail to added');
+    blurbody.style.opacity = "1";
+	enrollform.style.display ="none";
   } else {
     alert('Succefully added');
+    blurbody.style.opacity = "1";
+	enrollform.style.display ="none";
+
+		displayweb.style.display = "block";
+		localStorage.setItem('webcode', 100);
+		document.getElementById('weblevel').innerHTML = selectedlevel;
+		localStorage.setItem('weblevel' , selectedlevel);
   }
 });
+
+	}else if (selectedcoursecode == 200) {
+
+		// add selected course to database 
+	 	firebase.database().ref('studentcoursesjava/' + indexedEmail).set({
+  CourseName: selectedcourse,
+  CourseCode: selectedcoursecode,
+  EntryLevel : selectedlevel,
+  EnrollDate : enrolldate
+}, (error) => {
+  if (error) {
+    alert('Fail to added');
+    blurbody.style.opacity = "1";
+	 	 enrollform.style.display ="none";
+  } else {
+    alert('Succefully added');
+    blurbody.style.opacity = "1";
+	 	 enrollform.style.display ="none";
+	 	 
+		displayjava.style.display = "block";
+		localStorage.setItem('javacode', 200);
+		document.getElementById('javalevel').innerHTML = selectedlevel;
+		localStorage.setItem('javalevel' , selectedlevel);
+  }
+});
+		
+	}else if (selectedcoursecode == 300) {
+
+		// add selected course to database 
+	 	firebase.database().ref('studentcoursespython/' + indexedEmail).set({
+  CourseName: selectedcourse,
+  CourseCode: selectedcoursecode,
+  EntryLevel : selectedlevel,
+  EnrollDate : enrolldate
+}, (error) => {
+  if (error) {
+    alert('Fail to added');
+    blurbody.style.opacity = "1";
+	 	 enrollform.style.display ="none";
+  } else {
+    alert('Succefully added');
+    blurbody.style.opacity = "1";
+	 	 enrollform.style.display ="none";
+	 	 
+		displaypython.style.display = "block";
+		localStorage.setItem('pythoncode', 300);
+		document.getElementById('pythonlevel').innerHTML = selectedlevel;
+		localStorage.setItem('pythonlevel' , selectedlevel);
+  }
+});
+		
+	}else if (selectedcoursecode == 400) {
+
+		// add selected course to database 
+	 	firebase.database().ref('studentcoursesandroid/' + indexedEmail).set({
+  CourseName: selectedcourse,
+  CourseCode: selectedcoursecode,
+  EntryLevel : selectedlevel,
+  EnrollDate : enrolldate
+}, (error) => {
+  if (error) {
+    alert('Fail to added');
+    blurbody.style.opacity = "1";
+	 	 enrollform.style.display ="none";
+  } else {
+    alert('Succefully added');
+    blurbody.style.opacity = "1";
+	 	 enrollform.style.display ="none";
+	 	 
+		displayandroid.style.display = "block";
+		localStorage.setItem('androidcode', 400);
+		document.getElementById('androidlevel').innerHTML = selectedlevel;
+		localStorage.setItem('androidlevel' , selectedlevel);
+  }
+});
+		
+	}else  {
+		alert('course not available');
+	}
 
 	 	
 })
@@ -142,26 +240,36 @@ function retaincoursedisplay() {
 	let javacode =  localStorage.getItem('javacode');
 	let pythoncode =  localStorage.getItem('pythoncode');
 	let androidcode =  localStorage.getItem('androidcode');
-	 console.log(webcode  + javacode + pythoncode + androidcode);
+
+	// get course level
+	let weblevel =  localStorage.getItem('weblevel');
+	let javalevel =  localStorage.getItem('javalevel');
+	let pythonlevel =  localStorage.getItem('pythonlevel');
+	let androidlevel =  localStorage.getItem('androidlevel');
+	 //console.log(webcode  + javacode + pythoncode + androidcode);
 // first check
 		if (webcode == undefined) {
 	}else{
-		displayweb.style.display = "block";		
+		displayweb.style.display = "block";	
+		document.getElementById('weblevel').innerHTML = weblevel;	
 	}
 // second check
 		if (javacode == undefined) {
 	}else{
-		displayjava.style.display = "block";		
+		displayjava.style.display = "block";
+		document.getElementById('javalevel').innerHTML = javalevel;		
 	}
 // third check
 	if (pythoncode == undefined) {
 	}else{
-		displaypython.style.display = "block";		
+		displaypython.style.display = "block";
+		document.getElementById('pythonlevel').innerHTML = pythonlevel;		
 	}
 // forth check 
 	if (androidcode == undefined) {
 	}else{
-		displayandroid.style.display = "block";		
+		displayandroid.style.display = "block";	
+		document.getElementById('androidlevel').innerHTML = androidlevel;	
 	}
 }
 retaincoursedisplay() ;
@@ -233,3 +341,6 @@ auth.onAuthStateChanged(function(user){
         window.location.href='registration.html';
       }
     })
+
+
+
