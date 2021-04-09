@@ -8,6 +8,21 @@ let regform = document.querySelector('.regform');
 let firstNane,studentcode,middleName,lastName,intrestedArea,phoneNumber,
 signupEmail,signupPassword,confirmSignupPassword,indexedEmail;
 let loginusername,loginpassword;
+let myerror = document.getElementById('btnerror');
+let mysuccess = document.getElementById('btnsuccess');
+let myinfor = document.getElementById('btninfor');
+let mysubject = document.getElementById('alertsubject');
+let mymessage  = document.getElementById('alertmessage');
+let myalert = document.getElementById('myalert')
+var seconds ;
+
+
+
+// end of global variable
+
+
+
+
 
 
 // get data for validateion
@@ -298,11 +313,18 @@ firebase.database().ref('studentusers/' + indexedEmail).set({
     let Wrongpassworderror = 'The password is invalid or the user does not have a password.';
     let nousererror = 'There is no user record corresponding to this identifier. The user may have been deleted.';
     if (error.message == nousererror) {
-      alert('No such user please register');
+      seconds = 2;
+      //alert('No such user please register');
+      showerroralert("Error", "The user does not exits");
     }else if(error.message == Wrongpassworderror){
-      alert('Wrong password entered');
+      //alert('Wrong password');
+      seconds = 2;
+      showerroralert("Error", "You entered wrong password");
+     // console.log(seconds);
     }else{
-       alert('An error occured');
+      seconds = 2;
+      // alert('An error occured');
+       showeinforalert("An error occoured", "Conduct admin for help");
     }
    
     btnsigninnewuser.innerHTML = "Log In"
@@ -339,4 +361,38 @@ firebase.database().ref('studentusers/' + indexedEmail).set({
     })
 
 
-  
+  // catch all errors and throw as aletrs
+
+  function showerroralert(subject, message) {
+    // body...
+    myalert.style.display = "block";
+ myalert.classList.add("erroralert");
+ mysubject.innerHTML = subject;
+ mymessage.innerHTML = message;
+  }
+  function showsuccessalert(subject, message) {
+    // body...
+    myalert.style.display = "block";
+ myalert.classList.add("erroralert");
+ mysubject.innerHTML = subject;
+ mymessage.innerHTML = message;
+  }
+    function showeinforalert(subject, message) {
+    // body...
+    myalert.style.display = "block";
+ myalert.classList.add("erroralert");
+ mysubject.innerHTML = subject;
+ mymessage.innerHTML = message;
+  }
+
+
+//// counter code
+
+
+var countdown = setInterval(function() {
+    seconds--;
+    if (seconds <= 0){
+      clearInterval(countdown);
+      myalert.style.display = "none";
+    } 
+}, 1000);

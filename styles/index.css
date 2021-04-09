@@ -128,8 +128,47 @@ color: #FD4935;
   margin-left: 2%;
   background: #FEC12C;
 }
+
+.customalertframe{
+  position: fixed;
+  border-radius: 10px;
+  top: 30%;
+  left:50%;
+  width: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 10px;
+  background: white;
+  z-index: 9;
+  padding: 5px;
+}
+.alertframemessage{
+   border-top: 2px solid white;
+   padding: 5px;
+}
+
+.inforalert{
+  background: dodgerblue;
+  opacity: 0.9;
+}
+.erroralert{
+  background: red;
+  opacity: 0.9;
+}
+.successalert{
+  background: #0f3;
+  opacity: 0.8;
+ 
+}
+#myalert{
+  display: none;
+}
+
+
 /*-------------------small screens ------------------*/
 @media (max-width: 800px){
+  .customalertframe{
+    width: 75%;
+  }
   .technicalassistantimage{
  width: 100%;
 }
