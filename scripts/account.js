@@ -342,10 +342,17 @@ function selectallenrolled(email) {
   
 	// check web course
 	 firebase.database().ref('studentcoursesweb/'+ indexedEmail ).on('value' ,function(snapshot){
+			 	
+			 	if (snapshot.exists()) {
 			 	let courseCode = snapshot.val().CourseCode;
 			 	let entryLevel = snapshot.val().EntryLevel;
 			 	localStorage.setItem('webcode', courseCode);
  				localStorage.setItem('weblevel', entryLevel);
+			 	}else{
+			 		//alert('no web');
+			 	}
+
+			 	
 			 }, (error) => {
   if (error) {
     // The write failed...
@@ -357,10 +364,15 @@ function selectallenrolled(email) {
 
 // check android course
 	 firebase.database().ref('studentcoursesandroid/'+ indexedEmail ).on('value' ,function(snapshot){
+			 	if (snapshot.exists()) {
 			 	let courseCode = snapshot.val().CourseCode;
 			 	let entryLevel = snapshot.val().EntryLevel;
 			 	localStorage.setItem('androidcode', courseCode);
  				localStorage.setItem('androidlevel', entryLevel);
+			 	}else{
+			 		//alert('no android');
+			 	}
+
 			 }, (error) => {
   if (error) {
     // The write failed...
@@ -372,13 +384,14 @@ function selectallenrolled(email) {
 
 	 // check java course
 	 firebase.database().ref('studentcoursesjava/'+ indexedEmail ).on('value' ,function(snapshot){
-			 	let courseCode = snapshot.val().CourseCode;
+			 	
+			 	if (snapshot.exists()) {
+			 		let courseCode = snapshot.val().CourseCode;
 			 	let entryLevel = snapshot.val().EntryLevel;
-			 	if (snapshot.val() == null) {
-
- 				}else{
- 					localStorage.setItem('javacode', courseCode);
+			 	localStorage.setItem('javacode', courseCode);
  				localStorage.setItem('javalevel', entryLevel);
+ 				}else{
+ 					//alert('no java');
  				}
 			 	
 			 }, (error) => {
@@ -391,14 +404,15 @@ function selectallenrolled(email) {
 })
 	 // check python course
 	 firebase.database().ref('studentcoursespython/'+ indexedEmail ).on('value' ,function(snapshot){
-			 	let courseCode = snapshot.val().CourseCode;
-			 	let entryLevel = snapshot.val().EntryLevel;
 			 	
- 				if (snapshot.val() == null) {
-
- 				}else{
- 					localStorage.setItem('pythoncode', courseCode);
+			 	
+ 				if (snapshot.exists()) {
+ 					let courseCode = snapshot.val().CourseCode;
+			 	let entryLevel = snapshot.val().EntryLevel;
+			 	localStorage.setItem('pythoncode', courseCode);
  				localStorage.setItem('pythonlevel', entryLevel);
+ 				}else{
+ 				//alert('no python');	
  				}
 			 }, (error) => {
   if (error) {
