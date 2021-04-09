@@ -18,6 +18,9 @@ let displayjava = document.querySelector('.div200');
 let displaypython = document.querySelector('.div300');
 let displayandroid = document.querySelector('.div400');
 
+
+
+
 btncloseenrollpopup.addEventListener('click', () => {
 	
 	enrollform.style.display ="none";
@@ -273,6 +276,7 @@ function retaincoursedisplay() {
 	}
 }
 retaincoursedisplay() ;
+setTimeout(retaincoursedisplay, 3000);
 
   function openquizpage1() {
   	// body...
@@ -329,6 +333,86 @@ btnlogout.addEventListener('click' , () =>{
     	alert("signed out");
 })
 
+// select course enrolled
+
+function selectallenrolled(email) {
+	// body...
+	indexedEmail = email
+	indexedEmail = indexedEmail.replace(".", "@");
+  
+	// check web course
+	 firebase.database().ref('studentcoursesweb/'+ indexedEmail ).on('value' ,function(snapshot){
+			 	let courseCode = snapshot.val().CourseCode;
+			 	let entryLevel = snapshot.val().EntryLevel;
+			 	localStorage.setItem('webcode', courseCode);
+ 				localStorage.setItem('weblevel', entryLevel);
+			 }, (error) => {
+  if (error) {
+    // The write failed...
+  } else{
+  	localStorage.setItem('webcode', courseCode);
+ 	localStorage.setItem('weblevel', entryLevel);
+  }
+})
+
+// check android course
+	 firebase.database().ref('studentcoursesandroid/'+ indexedEmail ).on('value' ,function(snapshot){
+			 	let courseCode = snapshot.val().CourseCode;
+			 	let entryLevel = snapshot.val().EntryLevel;
+			 	localStorage.setItem('androidcode', courseCode);
+ 				localStorage.setItem('androidlevel', entryLevel);
+			 }, (error) => {
+  if (error) {
+    // The write failed...
+  } else{
+  	localStorage.setItem('androidcode', courseCode);
+ 	localStorage.setItem('androidlevel', entryLevel);
+  }
+})
+
+	 // check java course
+	 firebase.database().ref('studentcoursesjava/'+ indexedEmail ).on('value' ,function(snapshot){
+			 	let courseCode = snapshot.val().CourseCode;
+			 	let entryLevel = snapshot.val().EntryLevel;
+			 	if (snapshot.val() == null) {
+
+ 				}else{
+ 					localStorage.setItem('javacode', courseCode);
+ 				localStorage.setItem('javalevel', entryLevel);
+ 				}
+			 	
+			 }, (error) => {
+  if (error) {
+    // The write failed...
+  } else{
+  	localStorage.setItem('javacode', courseCode);
+ 	localStorage.setItem('javalevel', entryLevel);
+  }
+})
+	 // check python course
+	 firebase.database().ref('studentcoursespython/'+ indexedEmail ).on('value' ,function(snapshot){
+			 	let courseCode = snapshot.val().CourseCode;
+			 	let entryLevel = snapshot.val().EntryLevel;
+			 	
+ 				if (snapshot.val() == null) {
+
+ 				}else{
+ 					localStorage.setItem('pythoncode', courseCode);
+ 				localStorage.setItem('pythonlevel', entryLevel);
+ 				}
+			 }, (error) => {
+  if (error) {
+    // The write failed...
+  } else{
+  	localStorage.setItem('pythoncode', courseCode);
+ 	localStorage.setItem('pythonlevel', entryLevel);
+  }
+})
+
+
+}
+
+
 
 auth.onAuthStateChanged(function(user){
       if(user){
@@ -336,6 +420,7 @@ auth.onAuthStateChanged(function(user){
         //alert("Active user" + email);
         // console.log(email);
          usernamedisplay.innerHTML = email + " ";
+         selectallenrolled(email);
       }else{
         //alert("No Active user");
         window.location.href='registration.html';
