@@ -17,7 +17,7 @@ let displayweb = document.querySelector('.div100');
 let displayjava = document.querySelector('.div200');
 let displaypython = document.querySelector('.div300');
 let displayandroid = document.querySelector('.div400');
-
+let enrollscore = 0.0;
 
 
 
@@ -135,7 +135,8 @@ btnsubmitenroll.addEventListener('click' , ()  => {
   CourseName: selectedcourse,
   CourseCode: selectedcoursecode,
   EntryLevel : selectedlevel,
-  EnrollDate : enrolldate
+  EnrollDate : enrolldate,
+  CourseScore : enrollscore
 }, (error) => {
   if (error) {
     alert('Fail to added');
@@ -160,7 +161,8 @@ btnsubmitenroll.addEventListener('click' , ()  => {
   CourseName: selectedcourse,
   CourseCode: selectedcoursecode,
   EntryLevel : selectedlevel,
-  EnrollDate : enrolldate
+  EnrollDate : enrolldate,
+  CourseScore : enrollscore
 }, (error) => {
   if (error) {
     alert('Fail to added');
@@ -185,7 +187,8 @@ btnsubmitenroll.addEventListener('click' , ()  => {
   CourseName: selectedcourse,
   CourseCode: selectedcoursecode,
   EntryLevel : selectedlevel,
-  EnrollDate : enrolldate
+  EnrollDate : enrolldate,
+  CourseScore : enrollscore
 }, (error) => {
   if (error) {
     alert('Fail to added');
@@ -210,7 +213,8 @@ btnsubmitenroll.addEventListener('click' , ()  => {
   CourseName: selectedcourse,
   CourseCode: selectedcoursecode,
   EntryLevel : selectedlevel,
-  EnrollDate : enrolldate
+  EnrollDate : enrolldate,
+  CourseScore : enrollscore
 }, (error) => {
   if (error) {
     alert('Fail to added');

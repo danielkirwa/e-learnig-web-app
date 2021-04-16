@@ -14,7 +14,7 @@ let newcorrectanswer,newanswer3,newanswer2,newanswer1,newquestionnumber,newquest
  let snapshoterr ;
  let btnsubmit =document.getElementById('submit');
  let answerform = document.getElementById('answersform');
-
+let indexedEmail;
 
  btnstartquiz.addEventListener('click', () =>{
   // get questions  from database
@@ -91,12 +91,21 @@ let newcorrectanswer,newanswer3,newanswer2,newanswer1,newquestionnumber,newquest
 function fetchnextquiz() {
   // body...
   //radioselected.checked = false;
+
+//index username
+
+indexedEmail = firebase.auth().currentUser.email;
+  indexedEmail = indexedEmail.replace(".", "@");
+  //console.log(indexedEmail);
+
+
   let countconstant = 1;
 
 
    let questionnumber = localStorage.getItem('quizcode');
     
     questionnumber = parseInt(questionnumber);
+    // course to add
      questionnumber = questionnumber + countconstant;
     console.log(typeof questionnumber + " " + questionnumber);
     firebase.database().ref('QuizQuestions/' + questionnumber).on('value',function(snapshot){
@@ -158,6 +167,16 @@ function fetchnextquiz() {
       <label>passmark is 80% </label>
     `;
     btnsubmit.style.display = "none";
+
+    // update student score 
+    if(){}
+
+        firebase.database().ref('studentcoursesweb/' + indexedEmail).update({
+
+    CourseScore: passmark
+   
+  })
+
 
      localStorage.setItem('complete', "Complete");
 

@@ -366,7 +366,7 @@ firebase.database().ref('studentusers/' + indexedEmail).set({
   function showerroralert(subject, message) {
     // body...
     myalert.style.display = "block";
- myalert.classList.add("erroralert");
+ myalert.classList.add("successalert");
  mysubject.innerHTML = subject;
  mymessage.innerHTML = message;
   }
@@ -380,7 +380,7 @@ firebase.database().ref('studentusers/' + indexedEmail).set({
     function showeinforalert(subject, message) {
     // body...
     myalert.style.display = "block";
- myalert.classList.add("erroralert");
+ myalert.classList.add("inforalert");
  mysubject.innerHTML = subject;
  mymessage.innerHTML = message;
   }
