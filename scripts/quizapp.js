@@ -14,7 +14,22 @@ let newcorrectanswer,newanswer3,newanswer2,newanswer1,newquestionnumber,newquest
  let snapshoterr ;
  let btnsubmit =document.getElementById('submit');
  let answerform = document.getElementById('answersform');
-let indexedEmail;
+let indexedEmail,CourseCode;
+
+
+// get course code
+
+function getcoursecode() {
+  // body...
+  CourseCode = localStorage.getItem('quizcoursecode');
+  if (CourseCode == undefined) {
+
+  }else{
+    CourseCode = CourseCode;
+    console.log(CourseCode);
+  }
+}
+getcoursecode();
 
  btnstartquiz.addEventListener('click', () =>{
   // get questions  from database
@@ -168,8 +183,8 @@ indexedEmail = firebase.auth().currentUser.email;
     `;
     btnsubmit.style.display = "none";
 
-    // update student score 
-    if(){}
+    // update student score  web
+    if( CourseCode == 100){
 
         firebase.database().ref('studentcoursesweb/' + indexedEmail).update({
 
@@ -177,6 +192,39 @@ indexedEmail = firebase.auth().currentUser.email;
    
   })
 
+    }
+
+ // update student score  java
+    if( CourseCode == 200){
+
+        firebase.database().ref('studentcoursesjava/' + indexedEmail).update({
+
+    CourseScore: passmark
+   
+  })
+
+    } 
+    // update student score  python
+    if( CourseCode == 300){
+
+        firebase.database().ref('studentcoursespython/' + indexedEmail).update({
+
+    CourseScore: passmark
+   
+  })
+
+    }
+    // update student score  android
+    if( CourseCode == 400){
+
+        firebase.database().ref('studentcoursesandroid/' + indexedEmail).update({
+
+    CourseScore: passmark
+   
+  })
+
+    }
+    // end of update
 
      localStorage.setItem('complete', "Complete");
 

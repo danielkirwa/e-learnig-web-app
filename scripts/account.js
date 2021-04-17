@@ -17,7 +17,7 @@ let displayweb = document.querySelector('.div100');
 let displayjava = document.querySelector('.div200');
 let displaypython = document.querySelector('.div300');
 let displayandroid = document.querySelector('.div400');
-let enrollscore = 0.0;
+let enrollscore = 0;
 
 
 
@@ -253,30 +253,40 @@ function retaincoursedisplay() {
 	let javalevel =  localStorage.getItem('javalevel');
 	let pythonlevel =  localStorage.getItem('pythonlevel');
 	let androidlevel =  localStorage.getItem('androidlevel');
+	// get course score 
+	let webscore =  localStorage.getItem('webscore');
+	let javascore =  localStorage.getItem('javascore');
+	let pythonscore =  localStorage.getItem('pythonscore');
+	let androidscore =  localStorage.getItem('androidscore');
+
 	 //console.log(webcode  + javacode + pythoncode + androidcode);
 // first check
 		if (webcode == undefined) {
 	}else{
 		displayweb.style.display = "block";	
-		document.getElementById('weblevel').innerHTML = weblevel;	
+		document.getElementById('weblevel').innerHTML = weblevel;
+		document.getElementById('webscore').innerHTML = webscore;	
 	}
 // second check
 		if (javacode == undefined) {
 	}else{
 		displayjava.style.display = "block";
-		document.getElementById('javalevel').innerHTML = javalevel;		
+		document.getElementById('javalevel').innerHTML = javalevel;	
+		document.getElementById('javascore').innerHTML = javascore;	
 	}
 // third check
 	if (pythoncode == undefined) {
 	}else{
 		displaypython.style.display = "block";
-		document.getElementById('pythonlevel').innerHTML = pythonlevel;		
+		document.getElementById('pythonlevel').innerHTML = pythonlevel;
+		document.getElementById('pythonscore').innerHTML = pythonscore;	
 	}
 // forth check 
 	if (androidcode == undefined) {
 	}else{
 		displayandroid.style.display = "block";	
-		document.getElementById('androidlevel').innerHTML = androidlevel;	
+		document.getElementById('androidlevel').innerHTML = androidlevel;
+		document.getElementById('androidscore').innerHTML = androidscore;	
 	}
 }
 retaincoursedisplay() ;
@@ -287,7 +297,7 @@ setTimeout(retaincoursedisplay, 3000);
 
   		let courseid = document.getElementById('courseid1').innerHTML;
   		let quizno = 1;
- 
+ 		localStorage.setItem('quizcoursecode', courseid);
   		 quizcode = courseid + quizno;
   		  console.log(quizcode);
   		   localStorage.setItem('quizcode' , quizcode);
@@ -299,7 +309,7 @@ setTimeout(retaincoursedisplay, 3000);
 
   		let courseid = document.getElementById('courseid2').innerHTML;
   		let quizno = 1;
- 
+ 			localStorage.setItem('quizcoursecode', courseid);
   		 quizcode = courseid + quizno;
   		  console.log(quizcode);
   		   localStorage.setItem('quizcode' , quizcode);
@@ -311,7 +321,7 @@ setTimeout(retaincoursedisplay, 3000);
 
   		let courseid = document.getElementById('courseid3').innerHTML;
   		let quizno = 1;
- 
+ 			localStorage.setItem('quizcoursecode', courseid);
   		 quizcode = courseid + quizno;
   		  console.log(quizcode);
   		   localStorage.setItem('quizcode' , quizcode);
@@ -323,7 +333,7 @@ setTimeout(retaincoursedisplay, 3000);
 
   		let courseid = document.getElementById('courseid4').innerHTML;
   		let quizno =1;
- 
+ 			localStorage.setItem('quizcoursecode', courseid);
   		 quizcode = courseid + quizno;
   		  console.log(quizcode);
   		   localStorage.setItem('quizcode' , quizcode);
@@ -350,8 +360,10 @@ function selectallenrolled(email) {
 			 	if (snapshot.exists()) {
 			 	let courseCode = snapshot.val().CourseCode;
 			 	let entryLevel = snapshot.val().EntryLevel;
+			 	let coursecode = snapshot.val().CourseScore;
 			 	localStorage.setItem('webcode', courseCode);
  				localStorage.setItem('weblevel', entryLevel);
+ 				localStorage.setItem('webscore', coursecode);
 			 	}else{
 			 		//alert('no web');
 			 	}
@@ -363,6 +375,7 @@ function selectallenrolled(email) {
   } else{
   	localStorage.setItem('webcode', courseCode);
  	localStorage.setItem('weblevel', entryLevel);
+ 	localStorage.setItem('webscore', coursecode);
   }
 })
 
@@ -371,8 +384,10 @@ function selectallenrolled(email) {
 			 	if (snapshot.exists()) {
 			 	let courseCode = snapshot.val().CourseCode;
 			 	let entryLevel = snapshot.val().EntryLevel;
+			 	let coursecode = snapshot.val().CourseScore;
 			 	localStorage.setItem('androidcode', courseCode);
  				localStorage.setItem('androidlevel', entryLevel);
+ 				localStorage.setItem('androidscore', coursecode);
 			 	}else{
 			 		//alert('no android');
 			 	}
@@ -383,6 +398,7 @@ function selectallenrolled(email) {
   } else{
   	localStorage.setItem('androidcode', courseCode);
  	localStorage.setItem('androidlevel', entryLevel);
+ 	localStorage.setItem('androidscore', coursecode);
   }
 })
 
@@ -392,8 +408,10 @@ function selectallenrolled(email) {
 			 	if (snapshot.exists()) {
 			 		let courseCode = snapshot.val().CourseCode;
 			 	let entryLevel = snapshot.val().EntryLevel;
+			 	let coursecode = snapshot.val().CourseScore;
 			 	localStorage.setItem('javacode', courseCode);
  				localStorage.setItem('javalevel', entryLevel);
+ 				localStorage.setItem('javascore', coursecode);
  				}else{
  					//alert('no java');
  				}
@@ -404,6 +422,7 @@ function selectallenrolled(email) {
   } else{
   	localStorage.setItem('javacode', courseCode);
  	localStorage.setItem('javalevel', entryLevel);
+ 	localStorage.setItem('javascore', coursecode);
   }
 })
 	 // check python course
@@ -413,8 +432,10 @@ function selectallenrolled(email) {
  				if (snapshot.exists()) {
  					let courseCode = snapshot.val().CourseCode;
 			 	let entryLevel = snapshot.val().EntryLevel;
+			 	let coursecode = snapshot.val().CourseScore;
 			 	localStorage.setItem('pythoncode', courseCode);
  				localStorage.setItem('pythonlevel', entryLevel);
+ 				localStorage.setItem('pythonscore', coursecode);
  				}else{
  				//alert('no python');	
  				}
@@ -424,6 +445,7 @@ function selectallenrolled(email) {
   } else{
   	localStorage.setItem('pythoncode', courseCode);
  	localStorage.setItem('pythonlevel', entryLevel);
+ 	localStorage.setItem('pythonscore', coursecode);
   }
 })
 
