@@ -122,7 +122,7 @@ indexedEmail = firebase.auth().currentUser.email;
     questionnumber = parseInt(questionnumber);
     // course to add
      questionnumber = questionnumber + countconstant;
-    console.log(typeof questionnumber + " " + questionnumber);
+    console.log(typeof questionnumber +  questionnumber);
     firebase.database().ref('QuizQuestions/' + questionnumber).on('value',function(snapshot){
     try{
  

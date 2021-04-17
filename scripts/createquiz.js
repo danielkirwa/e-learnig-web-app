@@ -200,10 +200,11 @@ checkexamcode.addEventListener('keyup', () =>{
 	 let answer2 = localStorage.getItem('answer2');
 	 let answer3 = localStorage.getItem('answer3');
 	 let correctanswer = localStorage.getItem('correctanswer');
-	 
-
+	    qcode = parseInt(qcode)
+	    qnumber = parseInt(qnumber)
+	 	let combinedcode = qcode + qnumber;
 			// upload data to realtime database
-		firebase.database().ref('QuizQuestions/' + qcode + qnumber).set({
+		firebase.database().ref('QuizQuestions/' + combinedcode).set({
 
 
 
