@@ -95,6 +95,10 @@ html{
    
 /*-------------------small screens ------------------*/
 @media (max-width: 800px){
+	nav a{
+		padding: 5px 6px ;
+		font-size-adjust: 12px;
+	}
 
  .footer{
 	width: 100%;
