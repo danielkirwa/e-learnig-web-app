@@ -95,3 +95,8 @@ color: #fff;
 #myalert{
   display: none;
 }
+@media (max-width: 800px){
+	.inputstyle{
+		width: 80%;
+	}
+}
