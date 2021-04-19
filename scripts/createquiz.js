@@ -112,7 +112,7 @@ btnsubmit.addEventListener('click', () =>{
 // validate exam code
 let checkexamcode = document.getElementById('txtquizcode');
 checkexamcode.addEventListener('keyup', () =>{
-	if (checkexamcode.value.length < 3){
+	if (checkexamcode.value.length < 4){
 		
 		document.getElementById('txtquizcode').style.border = "2px solid red";
 		document.getElementById('codeerror').style.color = "red";
