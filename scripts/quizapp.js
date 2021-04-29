@@ -77,7 +77,7 @@ getcoursecode();
 
  function termandconditions() {
    // body...
-   txtquizholder.innerHTML = "Honest work is required and you only have one attempt";
+   txtquizholder.innerHTML = "Honest work is required and you only have one attempt, click start quiz to open quiz";
    
  }
 
