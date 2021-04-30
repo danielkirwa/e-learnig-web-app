@@ -9,3 +9,5 @@ This an learner driver learning platform. It very easy to use and user freindly.
 - Quiz/Exam provision
 - Learning material provision
 - Results generation
+
+<h1 style="color: blue">my color text</h1>
