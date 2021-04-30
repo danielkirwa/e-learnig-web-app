@@ -15,4 +15,11 @@ This an learner driver learning platform. It very easy to use and user freindly.
 ### Account creation and access
 
 <img src="images/Screenshot2.png" width="50%">
-<img src="images/Screenshot3.png" width="50%" style="float: left;">
+<img src="images/Screenshot3.png" width="50%" style="float: right;">
+
+Easy to create account and a secure way to access account though authentication. 
+You can not access any learning material or quiz if not authenticated 
+
+### Coures Enrollment 
+
+Once created an account you can enroll to course of your choice any time
