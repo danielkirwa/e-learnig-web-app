@@ -15,7 +15,7 @@ let mysubject = document.getElementById('alertsubject');
 let mymessage  = document.getElementById('alertmessage');
 let myalert = document.getElementById('myalert')
 var seconds ;
-
+let btnforgotpassword = document.getElementById('btnforgotpassword');
 
 
 // end of global variable
@@ -384,6 +384,11 @@ firebase.database().ref('studentusers/' + indexedEmail).set({
  mysubject.innerHTML = subject;
  mymessage.innerHTML = message;
   }
+
+
+btnforgotpassword.addEventListener('click', () =>{
+  window.location.href='reset.html';
+})
 
 
 //// counter code

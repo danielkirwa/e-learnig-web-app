@@ -1,0 +1,117 @@
+
+.container,
+.feedbackContainer,
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+
+
+
+input[type = "email"] {
+    width: 340px;
+    margin-top: 8px;
+    padding: 2px 6px;
+    border: 1px solid dodgerblue;
+    background-color: #f7f7f7;
+    height: 40px;
+    outline-color: #FD4935;
+    font-size: 1rem
+}
+
+button {
+    float: right;
+    margin: 20px 47px 0px 0px;
+    padding: 10px 20px;
+    border: 1px solid #2196f3;
+    float: right;
+    background-color: #2196f3;
+    color: white;
+    cursor: pointer
+}
+
+.container div {
+    margin: 10px 40px;
+    position: relative
+}
+
+img {
+    width: 300px;
+    height: 150px;
+    margin: auto;
+    display: block
+}
+
+.reset-container div:first-of-type {   
+    width: 340px;
+    margin-top: 50px;
+}
+
+label {
+    position: absolute;
+    top: 56%;
+    left: 6px;
+    color: #505050
+}
+
+.focused-field {
+    animation-name: gainFocus;
+    animation-fill-mode: forwards;
+    animation-duration: 0.15s;
+    animation-timing-function: ease-out
+}
+
+@keyframes gainFocus {
+    0% {
+        top: 56%;
+        left: 6px;
+        color: #505050;
+        font-size: 1rem
+    }
+    100% {
+        top: 0%;
+        left: 0px;
+        color: #2196f3;
+        font-size: 0.9rem
+    }
+}
+
+.unfocused-field {
+    animation-name: loseFocus;
+    animation-fill-mode: forwards;
+    animation-duration: 0.15s;
+    animation-timing-function: ease-out
+}
+
+@keyframes loseFocus {
+    0% {
+        top: 0%;
+        left: 0px;
+        color: #2196f3;
+        font-size: 0.9rem
+    }
+    100% {
+        top: 56%;
+        left: 6px;
+        color: #505050;
+        font-size: 1rem
+    }
+}
+
+.initial-focused-field {
+    top: 0%;
+    left: 0px;
+    color: #2196f3;
+    font-size: 0.9rem
+}
+
+.initial-unfocused-field {
+    top: 56%;
+    left: 6px;
+    color: #505050;
+    font-size: 1rem
+}
+

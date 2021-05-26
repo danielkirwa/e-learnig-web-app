@@ -45,6 +45,9 @@
  color: #fff;
 	font-size: 20px;
 }
+.forgotpass{
+  background: #00000000;
+}
 .submitbutton:hover{
 	font-weight: bold;
 	 cursor: pointer;
