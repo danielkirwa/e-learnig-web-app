@@ -1,0 +1,26 @@
+.maindisplay{
+	display: flex;
+}
+.profileavator{
+width: 300px;
+margin-left: 20px;
+}
+.profiledetails{
+padding: 5px;
+}
+.profiledetails label{
+font-size: 20px;
+font-weight: bold;
+}
+#btnaddimage{
+	width: 100%;
+	padding: 4px 6px;
+	background: #00000000;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+.fa-plus{
+ color: dodgerblue;
+
+}
