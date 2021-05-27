@@ -305,7 +305,7 @@ firebase.database().ref('studentusers/' + indexedEmail).set({
     // ...
     // New sign-in will be persisted with session persistence.
     return firebase.auth().signInWithEmailAndPassword(loginusername, loginpassword);
-   
+
     window.location.href='accesedacc.html';
   })
   .catch((error) => {

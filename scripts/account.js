@@ -469,3 +469,26 @@ auth.onAuthStateChanged(function(user){
 
 
 
+   /* get user profile data
+
+      firebase.database().ref('studentusers/' + indexedEmail).on('value',function(snapshot){
+    try{
+      let  fname = snapshot.val().FirstName;
+      let  mname = snapshot.val().LastName;
+      let  lname = snapshot.val().MiddleName;
+      let  intrest = snapshot.val().Intrest;
+      let  phone = snapshot.val().PhoneNumber;
+      let  email = snapshot.val().Email;
+   
+      localStorage.setItem('pfname',fname );
+      localStorage.setItem('pmname',mname );
+      localStorage.setItem('plname',lname );
+      localStorage.setItem('pintrest',intrest );
+      localStorage.setItem('pphone',phone );
+      localStorage.setItem('pemail', email)
+    
+      //window.location.href='accesedacc.html';
+    }catch(error){
+      console.log(error.message);
+    }
+        })*/

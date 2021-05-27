@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Usre profile</title>
+	<title>E-learning app</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="styles/banner.css">
-	<link rel="stylesheet" type="text/css" href="styles/registration.css">
 	<link rel="stylesheet" type="text/css" href="styles/profile.css">
+	<link rel="stylesheet" type="text/css" href="styles/results.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
 </head>
 <body>
 <div class="bannerholder">
@@ -18,10 +20,11 @@
 		<div class="navbar">
 			<br>
 				<nav>
-		<a href="#" class="active"><span><i class="fa fa-user iconz"></i></span> &nbsp;Account</a>
-		<a href="index.html"><span><i class="fa fa-home iconz"></i></span> &nbsp;Home</a>
-		<a href="index.html#schedule-section"><span><i class="fa fa-calendar iconz"></i></span> &nbsp;Schedule</a>
+		<a href="#"  class="active"><span><i class="fa fa-user iconz"></i></span> &nbsp;Results</a>
+		<a href="accesedacc.html"><span><i class="fa fa-home iconz"></i></span> &nbsp;Dashboard</a>
+		<a href="accesedacc.html#schedule-section"><span><i class="fa fa-calendar iconz"></i></span> &nbsp;Schedule</a>
 			
+		<span class="profileicon" id="fdsa"> <span id="logedinusername">usrename &nbsp;&nbsp;</span><i class="fa fa-user  fa-3x"></i></span>
 	</nav>
 		</div>
 	
@@ -29,7 +32,21 @@
 	
 </div>
 <br>
- 
+
+<div class="popupmenu">
+	<div class="popuptitle">
+		<center>
+		<span>Username</span>
+		</center>
+	</div><br>
+	<center>
+		<a href="#">Profile</a><br><br><br>
+	<a href="online.html">Onlines</a><br><br><br>
+	<a href="accesedacc.html">Home</a><br><br><br>	
+	<a href="#" id="btnlogout">Logout</a><br><br><br>
+	</center>
+</div>
+
 <div class="maindisplay">
 	<div class="profileavator"> 
 
@@ -75,6 +92,7 @@
 	
 	</div>
 </div>
+
 <br>
 <div class="footer">
 	<div class="rightfooter">
@@ -84,8 +102,8 @@
 			<a href="#"><span><i class="fa fa-facebook iconz"></i></span>  facbook</a><br>
 			<a href="#"><span><i class="fa fa-twitter iconz"></i></span>  twitter</a><br>
 		</center>
-		
-
+<br>
+<br>
 	</div>
 	<div class="leftfooter">
 		<br>
@@ -100,16 +118,17 @@
 		</center><br>
 	</div>
 </div>
-<script type="text/javascript">
-	
-
-</script>
-
-
-<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+<!-- 
+ <div>
+ 	color holders
+ 	<div style="background: #FEC12C;"> 1</div>
+ 	<div style="background: #1e90ff;">2</div>
+ 	<div style="background: #FD4935;">3</div>
+ 	<div style="background: brown">4</div>
+ </div> -->
+ <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
 <script type="text/javascript" src="scripts/frconelearning.js"></script>
-<script type="text/javascript" src="scripts/createaccount.js"></script>
+ <script type="text/javascript" src="scripts/profile.js"></script>
 </body>
 </html>
