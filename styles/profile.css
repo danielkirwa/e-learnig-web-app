@@ -7,6 +7,9 @@ margin-left: 20px;
 }
 .profiledetails{
 padding: 5px;
+width: 80%;
+margin-right: 10px;
+
 }
 .profiledetails label{
 font-size: 20px;
@@ -17,10 +20,42 @@ font-weight: bold;
 	padding: 4px 6px;
 	background: #00000000;
 	outline: none;
-	border: none;
+	border: 1px solid dodgerblue;
 	cursor: pointer;
 }
 .fa-plus{
  color: dodgerblue;
+
+}
+.detail-holder{
+  background: #dcdcdc;
+  padding:  4px 6px;
+  width: 100%;
+  border-width: 3px;
+  border-bottom: solid black;
+  border-style: solid;
+  border-image: 
+    linear-gradient(
+      to bottom, 
+      black, 
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+}
+
+
+@media (max-width: 800px){
+.maindisplay{
+	display: block;
+}
+.profiledetails{
+padding: 5px;
+width: 95%;
+margin-right: 10px;
+
+}
+.profileavator{
+width: 95%;
+margin-left: 20px;
+}
 
 }
