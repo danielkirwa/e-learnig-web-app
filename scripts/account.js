@@ -21,6 +21,7 @@ let enrollscore = 0;
 
 
 
+
 btncloseenrollpopup.addEventListener('click', () => {
 	
 	enrollform.style.display ="none";
@@ -454,12 +455,15 @@ function selectallenrolled(email) {
 
 
 
+
+
 auth.onAuthStateChanged(function(user){
       if(user){
-        var email = user.email;
+         var email = user.email;
         //alert("Active user" + email);
         // console.log(email);
          usernamedisplay.innerHTML = email + " ";
+          getuserprofile(email);
          selectallenrolled(email);
       }else{
         //alert("No Active user");
@@ -469,14 +473,18 @@ auth.onAuthStateChanged(function(user){
 
 
 
-   /* get user profile data
-
+ //get user profile data
+ function getuserprofile(email) {
+ 	// body...
+ 	indexedEmail = email
+	indexedEmail = indexedEmail.replace(".", "@");
+ 		//console.log(indexedEmail + " working");
       firebase.database().ref('studentusers/' + indexedEmail).on('value',function(snapshot){
     try{
       let  fname = snapshot.val().FirstName;
       let  mname = snapshot.val().LastName;
       let  lname = snapshot.val().MiddleName;
-      let  intrest = snapshot.val().Intrest;
+      let  intrest = snapshot.val().IntrestedArea;
       let  phone = snapshot.val().PhoneNumber;
       let  email = snapshot.val().Email;
    
@@ -491,4 +499,8 @@ auth.onAuthStateChanged(function(user){
     }catch(error){
       console.log(error.message);
     }
-        })*/
+        })
+ }
+
+
+

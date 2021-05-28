@@ -22,6 +22,22 @@ callpopupmenu.addEventListener('click' , () =>{
 
 })
 
+
+// populate profile page
+
+function displayprofiledetails() {
+  // body...
+     let fname = localStorage.getItem('pfname');
+     let mname =   localStorage.getItem('pmname');
+     let lname = localStorage.getItem('plname');
+     let intrest =  localStorage.getItem('pintrest');
+     let phone = localStorage.getItem('pphone');
+     let email = localStorage.getItem('pemail')
+
+     
+
+}
+
   // signout
 btnlogout.addEventListener('click' , () =>{
 	localStorage.clear();
