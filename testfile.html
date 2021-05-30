@@ -1,50 +1,42 @@
-<!DOCTYPE html>
-<html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+        </head>
+        <body>
+            
+    <div id=timer></div>
+<script type="text/javascript">
+  var timeoutHandle;
 
-<head>
-    <title>Dynamic Elements and Event Targets</title>
-    <link rel="stylesheet" type="text/css" href="dom.css">
-</head>
+  function countdown(minutes, seconds) {
+    var seconds = 60;
+    var mins = minutes
 
-<body>
+    function tick() {
+      var counter = document.getElementById("timer");
+      var current_minutes = mins - 1
+      seconds--;
+      counter.innerHTML =
+        current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+      if (seconds > 0) {
+        timeoutHandle = setTimeout(tick, 1000);
+      } else {
 
-  <form id="form">
-  <div>
-    <label for="txtName">Name</label>
-    <input id="txtName" name="txtName" type="text" />
-  </div>
-  <input type="submit" value="submit" />
- 
-</form>
-    <script>
-      document.getElementById('form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  var name = document.getElementById('txtName').value;
-  var idElement = 'btnPrepend';
-  var html = `
-    <ul>
-      <li>${name}</li>
-    </ul>
-    <input type="button" value="prepend" id="${idElement}" />
-  `;
-  /* Insert the html into your DOM */
-  insertHTML('div', html);
-  /* Add an event listener after insert html */
-  addEvent(idElement);
-});
+        if (mins > 1) {
 
-const insertHTML = (tag = 'form', html, position = 'afterend', index = 0) => {
-  document.getElementsByTagName(tag)[index].insertAdjacentHTML(position, html);
-}
-const addEvent = (id, event = 'click') => {
-  document.getElementById(id).addEventListener(event, function() {
-    insertHTML('ul', '<li>Prepending data</li>', 'afterbegin')
-  });
-}
-        // end of my new test
+          setTimeout(function() {
+            countdown(mins - 1);
+          }, 1000);
 
-    </script>
+        }
+      }
+    }
+    tick();
+  }
 
-</body>
-
-</html>
+  countdown(2);
+</script>
+     
+        </body>
+    </html>

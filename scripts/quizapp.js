@@ -15,7 +15,7 @@ let newcorrectanswer,newanswer3,newanswer2,newanswer1,newquestionnumber,newquest
  let btnsubmit =document.getElementById('submit');
  let answerform = document.getElementById('answersform');
 let indexedEmail,CourseCode;
-
+ var timeoutHandle;
 
 // get course code
 
@@ -359,6 +359,35 @@ populatequiz()
   btnbackhome.addEventListener('click' , () => {
     window.location.href='accesedacc.html';
   })
+
+  // quiz timer 
+  function quizTimer(minutes, seconds) {
+    var seconds = 60;
+    var mins = minutes
+
+    function tick() {
+      var counter = document.getElementById("quiztime");
+      var current_minutes = mins - 1
+      seconds--;
+      counter.innerHTML =
+        current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+      if (seconds > 0) {
+        timeoutHandle = setTimeout(tick, 1000);
+      } else {
+
+        if (mins > 1) {
+
+          setTimeout(function() {
+            quizTimer(mins - 1);
+          }, 1000);
+
+        }
+      }
+    }
+    tick();
+  }
+    
+quizTimer(30);
 
 
 auth.onAuthStateChanged(function(user){
