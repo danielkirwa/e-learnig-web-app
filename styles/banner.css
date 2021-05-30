@@ -8,11 +8,7 @@ html{
 	background: #1e90ff;
 	padding: 20px;
 }
-.logoname{
-	float: right;
-	font-size: 32px;
-	margin-right: 20px;
-}
+
 .backgroung-image{
 	-webkit-background-size: cover;
 	background-size: cover;
