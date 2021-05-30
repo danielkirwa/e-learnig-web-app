@@ -234,7 +234,7 @@ firebase.database().ref('studentusers/' + indexedEmail).set({
       MiddleName: middleName,
       LastName: lastName,
       IntrestedArea: intrestedArea,
-      Email: indexedEmail,
+      Email: signupEmail,
       PhoneNumber: phoneNumber
 
     },  (error) => {
