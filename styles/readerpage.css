@@ -1,0 +1,91 @@
+.backhome{
+   float: left;
+   font-size: 20px;
+   margin-top: 20px;
+   margin-right: 20px;
+   cursor: pointer;
+}
+.username{
+   float: right;
+   font-size: 20px;
+   margin-top: 20px;
+   margin-right: 20px;
+}
+.notesnputholder{
+  border:  4px solid #1e90ff;
+  overflow: hidden;
+}
+
+.notesinputtitle{
+	width: auto;
+	background: #FEC12C;
+	color: brown;
+	font-weight: bold;
+	font-size: 22px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+
+
+.unit-details{
+	display: flex;
+	background: #FEC12C;
+	padding: 10px;
+	color: brown;
+	font-size: 24px;
+	border-bottom: 3px solid dodgerblue;
+}
+.title-holder{
+ width: 50%;
+}
+.progress-holder{
+width: 50%;
+}
+
+#btnprevious , #btnnext{
+	padding: 4px 6px;
+	background: #fff;
+	font-size: 18px;
+	border-radius: 5px;
+	color: dodgerblue;
+	border: 2px solid dodgerblue;
+	outline: none;
+	cursor: pointer;
+
+}
+#btnnext{
+	float: right;
+
+}
+#progres{
+width: 100%;
+ background: #fff;
+ height: 20px;
+ border-radius: 10px;
+ border: 2px solid dodgerblue;
+}
+#progresbar{
+	width: 0%;
+	background: dodgerblue;
+	height: 20px;
+	border-radius: 6px;
+
+}
+
+/* on smalll screens */
+@media(max-width: 850px){
+
+.unit-details{
+	display: block;
+}
+.title-holder{
+ width: 100%;
+}
+.progress-holder{
+width: 100%;
+}
+
+}
