@@ -25,3 +25,11 @@ Once created an account you can enroll to course of your choice any time
  <i>By a click of a button you are able to enroll </i>
 
 <img src="images/Screenshot4.png">
+
+### Quiz app 
+
+Once created an account you can enroll to course of your choice any time and 
+also there will be button to open quiz for the course
+ <i>By a click of a button you are able view and attempt the quiz and wil be graded </i>
+
+<img src="images/Screenshot4.png">
