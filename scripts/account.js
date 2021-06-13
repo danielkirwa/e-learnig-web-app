@@ -452,7 +452,10 @@ function selectallenrolled(email) {
 
 
 }
-
+function opencourseContent() {
+	// body...
+	window.location.href= 'readerpage.html';
+}
 
 
 
