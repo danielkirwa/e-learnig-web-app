@@ -12,6 +12,7 @@ let progres = document.getElementById('score')
 	let javascore =  localStorage.getItem('javascore');
 	let pythonscore =  localStorage.getItem('pythonscore');
 	let androidscore =  localStorage.getItem('androidscore');
+	let readerunit = localStorage.getItem('Readerunit');
 
 
  btnbackhome.addEventListener('click' , () => {
@@ -25,7 +26,7 @@ let progres = document.getElementById('score')
 	let javacode =  localStorage.getItem('javacode');
 	let pythoncode =  localStorage.getItem('pythoncode');
 	let androidcode =  localStorage.getItem('androidcode');
-	let readerunit = localStorage.getItem('Readerunit');
+	
 
 	// get course name
 	let web =  "Web Development";
@@ -67,3 +68,16 @@ let progres = document.getElementById('score')
 
 }
 retaincoursedisplay();
+
+  function openquizpage() {
+  	// body...
+
+  		let courseid = readerunit;
+  		let quizno = 1;
+ 			localStorage.setItem('quizcoursecode', courseid);
+  		 quizcode = courseid + quizno;
+  		  console.log(quizcode);
+  		   localStorage.setItem('quizcode' , quizcode);
+  	 	alert('Open Quiz ' + quizcode);
+  	 	window.location.href= 'quizapp.html';
+  }

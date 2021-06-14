@@ -286,8 +286,8 @@ firebase.database().ref('studentusers/' + indexedEmail).set({
  	// body...
  	 loginusername = document.getElementById('txtsiginemail').value;
  	 loginpassword =  document.getElementById('siginppassword').value; 
- 	 console.log(loginusername);
- 	 console.log(loginpassword);
+ 	 //console.log(loginusername);
+ 	 //console.log(loginpassword);
  }
 
 

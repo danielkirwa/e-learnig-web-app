@@ -80,6 +80,15 @@ width: 100%;
 .unit-title{
  color: dodgerblue;
 }
+#openquiz{
+ 
+  margin-left: 4%;
+  padding: 5px 4px;
+  border:  2px solid dodgerblue;
+  background: #fff;
+  border-radius: 5px;
+
+}
 
 /* on smalll screens */
 @media(max-width: 850px){

@@ -293,54 +293,7 @@ function retaincoursedisplay() {
 retaincoursedisplay() ;
 setTimeout(retaincoursedisplay, 3000);
 
-  function openquizpage1() {
-  	// body...
 
-  		let courseid = document.getElementById('courseid1').innerHTML;
-  		let quizno = 1;
- 		localStorage.setItem('quizcoursecode', courseid);
-  		 quizcode = courseid + quizno;
-  		  console.log(quizcode);
-  		   localStorage.setItem('quizcode' , quizcode);
-  	 	alert('Open Quiz ' + quizcode);
-  	 	window.location.href= 'quizapp.html';
-  }
-    function openquizpage2() {
-  	// body...
-
-  		let courseid = document.getElementById('courseid2').innerHTML;
-  		let quizno = 1;
- 			localStorage.setItem('quizcoursecode', courseid);
-  		 quizcode = courseid + quizno;
-  		  console.log(quizcode);
-  		   localStorage.setItem('quizcode' , quizcode);
-  	 	alert('Open Quiz ' + quizcode);
-  	 	window.location.href= 'quizapp.html';
-  }
-  function openquizpage3() {
-  	// body...
-
-  		let courseid = document.getElementById('courseid3').innerHTML;
-  		let quizno = 1;
- 			localStorage.setItem('quizcoursecode', courseid);
-  		 quizcode = courseid + quizno;
-  		  console.log(quizcode);
-  		   localStorage.setItem('quizcode' , quizcode);
-  	 	alert('Open Quiz ' + quizcode);
-  	 	window.location.href= 'quizapp.html';
-  }
-  function openquizpage4() {
-  	// body...
-
-  		let courseid = document.getElementById('courseid4').innerHTML;
-  		let quizno =1;
- 			localStorage.setItem('quizcoursecode', courseid);
-  		 quizcode = courseid + quizno;
-  		  console.log(quizcode);
-  		   localStorage.setItem('quizcode' , quizcode);
-  	 	alert('Open Quiz ' + quizcode);
-  	 	window.location.href= 'quizapp.html';
-  }
 
 btnlogout.addEventListener('click' , () =>{
 	 localStorage.clear();
