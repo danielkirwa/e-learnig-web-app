@@ -452,9 +452,17 @@ function selectallenrolled(email) {
 
 
 }
-function opencourseContent() {
+function buttonidfetch(e) {
 	// body...
-	window.location.href= 'readerpage.html';
+	//window.location.href= 'readerpage.html';
+	  e = e || window.event;
+    e = e.target || e.srcElement;
+    if (e.nodeName === 'BUTTON') {
+        alert(e.value);
+      localStorage.setItem('Readerunit', e.value);
+      window.location.href='readerpage.html';
+        
+    }
 }
 
 

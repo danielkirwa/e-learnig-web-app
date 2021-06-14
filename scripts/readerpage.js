@@ -13,14 +13,6 @@ let progres = document.getElementById('score')
 	let pythonscore =  localStorage.getItem('pythonscore');
 	let androidscore =  localStorage.getItem('androidscore');
 
-function showprogress() {
-	// body...
-	var studentTotalScore = pythonscore;
-	var progresvalue = studentTotalScore + "%";
-	progressscore.style.width = progresvalue;
-}
-
-showprogress();
 
  btnbackhome.addEventListener('click' , () => {
     window.location.href='accesedacc.html';
@@ -33,42 +25,45 @@ showprogress();
 	let javacode =  localStorage.getItem('javacode');
 	let pythoncode =  localStorage.getItem('pythoncode');
 	let androidcode =  localStorage.getItem('androidcode');
+	let readerunit = localStorage.getItem('Readerunit');
 
-	// get course level
+	// get course name
 	let web =  "Web Development";
 	let java =  "Java Programming";
 	let python =  "Python Programming";
 	let android =  "Android Development";
-	
 
-	 //console.log(webcode  + javacode + pythoncode + androidcode);
-// first check
-		if (webcode == undefined) {
-	}else{
 	
+	// populated unit data
+	if (readerunit == 100) {
 		document.getElementById('unitname').innerHTML = web;
-		document.getElementById('score').innerHTML = webscore;	
+		document.getElementById('score').innerHTML = webscore;
+		var studentTotalScore = webscore;
+	      var progresvalue = studentTotalScore + "%";
+	      progressscore.style.width = progresvalue;	
 	}
-// second check
-		if (javacode == undefined) {
-	}else{
-		
+	if (readerunit == 200) {
 		document.getElementById('unitname').innerHTML = java;	
 		document.getElementById('score').innerHTML = javascore;	
+			var studentTotalScore = javascore;
+	      var progresvalue = studentTotalScore + "%";
+	      progressscore.style.width = progresvalue;
 	}
-// third check
-	if (pythoncode == undefined) {
-	}else{
-		
+	if (readerunit == 300) {
 		document.getElementById('unitname').innerHTML = python;
-		document.getElementById('score').innerHTML = pythonscore;	
+		document.getElementById('score').innerHTML = pythonscore;
+		var studentTotalScore = pythonscore;
+	      var progresvalue = studentTotalScore + "%";
+	      progressscore.style.width = progresvalue;	
 	}
-// forth check 
-	if (androidcode == undefined) {
-	}else{
-		
+	if (readerunit == 400) {
 		document.getElementById('unitname').innerHTML = android;
 		document.getElementById('score').innerHTML = androidscore;	
+		var studentTotalScore = androidscore;
+	      var progresvalue = studentTotalScore + "%";
+	      progressscore.style.width = progresvalue;
 	}
+    
+
 }
 retaincoursedisplay();
