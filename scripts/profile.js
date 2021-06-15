@@ -2,6 +2,7 @@
 let callpopupmenu = document.querySelector('.profileicon');
 let usernamedisplay = document.getElementById('logedinusername');
 let btnlogout = document.getElementById('btnlogout');
+let btnuploadphoto = document.getElementById('btnaddimage');
 
 callpopupmenu.addEventListener('click' , () =>{
   let menu = document.querySelector('.popupmenu');
@@ -20,6 +21,10 @@ callpopupmenu.addEventListener('click' , () =>{
   }
   }
 
+})
+
+btnuploadphoto.addEventListener('click' , () =>{
+  alert('upload comming soon');
 })
 
 
