@@ -3,7 +3,7 @@
   background: white;
 }
 .profileavator{
- background: teal;
+ background-image: linear-gradient(white, dodgerblue);
  border-bottom-right-radius: 30%;
  border-bottom-left-radius: 30%;
  height: 25vw;
@@ -16,6 +16,7 @@
     top: 50%;
   left:25%;
   width: 50%;
+
   max-height: 500px;
   min-width: 300px;
 }
@@ -23,7 +24,7 @@
   border-radius: 50%; max-height: 300px; max-width: 300px;
 }
 .profiledetails{
- background: dodgerblue;
+ background-image: linear-gradient(white, dodgerblue);
   border-top-right-radius: 30%;
  border-top-left-radius: 30%;
  margin-top: 200px;
@@ -45,7 +46,7 @@ font-weight: bold;
 
 }
 .detail-holder{
- background: dodgerblue;
+ background: #00000000;
 }
 
 
@@ -55,13 +56,14 @@ font-weight: bold;
   width: 50%;
   background: #00000000;
     top: 50%;
-  left:10%;
-  width: 50%;
+  left:12.5%;
+  width: 75%;
   max-height: 500px;
-  min-width: 300px;
+  min-width: 75%;
+  overflow: hidden;
 }
 .profiledetails{
- background: dodgerblue;
+ background-image: linear-gradient(white, dodgerblue);
   border-top-right-radius: 30%;
  border-top-left-radius: 30%;
  margin-top: 300px;
