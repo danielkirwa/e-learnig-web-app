@@ -51,6 +51,14 @@ font-weight: bold;
 
 
 @media (max-width: 800px){
-
+.image-holder{
+  position: absolute;
+  width: 50%;
+  background: #00000000;
+    top: 50%;
+  width: 50%;
+  max-height: 500px;
+  min-width: 300px;
+}
 
 }
