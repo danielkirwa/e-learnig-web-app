@@ -29,8 +29,7 @@ btnuploadphoto.addEventListener('click' , () =>{
 
 
 
-
-  // signout
+ // signout
 btnlogout.addEventListener('click' , () =>{
 	localStorage.clear();
 	    	auth.signOut();

@@ -2,12 +2,12 @@
   width: 150px;
   background: #1e90ff;
   text-align: center; 
-  position: absolute; 
+  position: relative; 
   top: 8%; 
   right: 1%; 
   overflow: hidden;
   display: none;
-
+ z-index: 1001;
 }
 
 .popupmenu a{
