@@ -26,7 +26,6 @@
  background: dodgerblue;
   border-top-right-radius: 30%;
  border-top-left-radius: 30%;
- height: 25vw;
  margin-top: 200px;
 }
 .profiledetails label{
@@ -56,9 +55,16 @@ font-weight: bold;
   width: 50%;
   background: #00000000;
     top: 50%;
+  left:10%;
   width: 50%;
   max-height: 500px;
   min-width: 300px;
+}
+.profiledetails{
+ background: dodgerblue;
+  border-top-right-radius: 30%;
+ border-top-left-radius: 30%;
+ margin-top: 300px;
 }
 
 }
