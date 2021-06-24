@@ -34,7 +34,9 @@ btnsavequiz.addEventListener('click', () =>{
 
 // check and retain sections
 function activatequizsection() {
-		callquiz.className += "active";
+		callschedule.className += "active";
+		callresults.classList.remove('active');
+		callquiz.classList.remove('active');
 		quizsection.style.display = "block";
 		resultssection.style.display = "none";
 		schedulesection.style.display = "none";
@@ -46,6 +48,8 @@ callquiz.addEventListener('click' ,  () =>{
 
 function activateresultssection() {
 		callresults.className += "active";
+		callschedule.classList.remove('active');
+		callquiz.classList.remove('active');
 		resultssection.style.display = "block";
 		schedulesection.style.display = "none";
 		quizsection.style.display = "none";
@@ -53,6 +57,18 @@ function activateresultssection() {
 }
 callresults.addEventListener('click' ,  () =>{
 	activateresultssection()
+});
+function activateschedulessection() {
+		callschedule.className += "active";
+		callresults.classList.remove('active');
+		callquiz.classList.remove('active');
+		schedulesection.style.display = "block";
+		resultssection.style.display = "none";
+		quizsection.style.display = "none";
+		localStorage.setItem('activesection', "schedulesection");
+}
+callschedule.addEventListener('click' ,  () =>{
+	activateschedulessection()
 });
 
 function retainsection(){
@@ -64,6 +80,11 @@ let 	activesection = localStorage.getItem('activesection');
 	}
 	if (activesection == "resultssection") {
 		activateresultssection();
+	}else{
+
+	}
+	if (activesection == "schedulesection") {
+		activateschedulessection();
 	}else{
 
 	}
