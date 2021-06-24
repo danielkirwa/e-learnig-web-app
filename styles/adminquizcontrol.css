@@ -87,6 +87,72 @@
 
 }
 
+.addquizsection{
+	display: none;
+}
+.resultssection{
+	display: none;
+}
+
+.select-unit{
+	background: #f1f1f1;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+}
+#btnviewresults{
+	background: dodgerblue;
+
+}
+#btnviewresults:hover{
+	cursor: pointer;
+	
+	
+}
+.inputstyle{
+  min-width: 290px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* results table */
+
+.resultstable{
+  
+  width: 100%;
+  border: 2px solid black ;
+   min-width: 750px;
+} 
+ .resultstable table{
+  width: 100%;
+ }
+ .resultstable thead{
+  color: brown;
+  font-size: 21px;
+  text-align: center;
+  background-color: dodgerblue;
+
+ }
+ .resultstable th{
+  padding: 12px 8px;
+
+ }
+  .resultstable td{
+    text-align: center;
+    font-size: 18px;
+    padding: 8px 6px;
+  }
+  .resultstable tbody tr:nth-child(odd){background-color: #f2f2f2;}
+  .resultstable tbody tr:hover{background-color: #ddd; }
+
  /* on smalll screens */
 
 @media(max-width: 850px){

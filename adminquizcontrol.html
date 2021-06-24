@@ -17,9 +17,9 @@
 		<div class="navbar">
 			<br>
 				<nav>
-		<a href="#" class="active"><span><i class="fa fa-user iconz"></i></span> &nbsp;Add Quiz</a>
-		<a href="#"><span><i class="fa fa-home iconz"></i></span> &nbsp;Results</a>
-		<a href="#"><span><i class="fa fa-calendar iconz"></i></span> &nbsp;Schedule</a>
+		<a href="#" id="calladdquiz"><span><i class="fa fa-user iconz"></i></span> &nbsp;Add Quiz</a>
+		<a href="#" id="callresults"><span><i class="fa fa-home iconz"></i></span> &nbsp;Results</a>
+		<a href="#" id="callschedule"><span><i class="fa fa-calendar iconz"></i></span> &nbsp;Schedule</a>
 			
 	</nav>
 		</div>
@@ -28,7 +28,8 @@
 	
 </div>
 <br>
-<div class="quizinputholder">
+ <section class="addquizsection">
+ 	<div class="quizinputholder">
 	 <div class="quizinput">
 	 	<div class="quizinputtitle">
 	 		<center><label>Question entry form</label></center>
@@ -92,6 +93,45 @@
 	
 </div>
 <br>
+ </section>
+ <section class="resultssection"> 
+     <div>
+     	<select class="select-unit">
+     		<option>Select Unit</option>
+     		<option>Web Development</option>
+     		<option>Java Programming</option>
+     		<option>Python Programming</option>
+     		<option>Android Programming</option>
+     	</select>
+     	<select class="select-unit">
+     		<option>Select Category</option>
+     		<option>All Scores</option>
+     		<option>All Pass</option>
+     		<option>All Failed</option>
+     	</select>
+     	<input type="email" name="" placeholder="Enter email" class="inputstyle">
+     	<button class="inputstyle" id="btnviewresults">View Scores</button>
+     </div>
+     <div class="resultstable">
+     	<table>
+			<thead>
+				<tr>
+					<th>CODE</th>
+					<th>UNIT NAME </th>
+					<th>USER EMAIL </th>
+					<th>LEVEL </th>
+					<th>SCORE </th>
+					<th>lOGED DATES </th>
+				</tr>
+			</thead>
+			<tbody id="resultstablebody">
+				
+			</tbody>
+		</table>
+     </div>
+ </section>
+ <section class="schedulesection"> schedule</section>
+
 <div class="footer">
 	<div class="rightfooter">
 		<center>

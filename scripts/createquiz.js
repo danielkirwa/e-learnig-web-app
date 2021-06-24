@@ -1,3 +1,11 @@
+let quizsection = document.querySelector('.addquizsection');
+let resultssection = document.querySelector('.resultssection');
+let schedulesection = document.querySelector('.schedulesection');
+let callquiz = document.getElementById('calladdquiz');
+let callresults = document.getElementById('callresults');
+let callschedule = document.getElementById('callschedule');
+
+
 let btnpreviewquiz = document.getElementById('quizpreview');
 let btnuploadquiz = document.getElementById('uploadquiz');
 let btnsavequiz = document.getElementById('savequiz');
@@ -23,6 +31,46 @@ btnsavequiz.addEventListener('click', () =>{
   	localStorage.setItem('btncontrol' , 1);
 
 })
+
+// check and retain sections
+function activatequizsection() {
+		callquiz.className += "active";
+		quizsection.style.display = "block";
+		resultssection.style.display = "none";
+		schedulesection.style.display = "none";
+		localStorage.setItem('activesection', "quizsection");
+}
+callquiz.addEventListener('click' ,  () =>{
+	activatequizsection()
+});
+
+function activateresultssection() {
+		callresults.className += "active";
+		resultssection.style.display = "block";
+		schedulesection.style.display = "none";
+		quizsection.style.display = "none";
+		localStorage.setItem('activesection', "resultssection");
+}
+callresults.addEventListener('click' ,  () =>{
+	activateresultssection()
+});
+
+function retainsection(){
+let 	activesection = localStorage.getItem('activesection');
+	if (activesection == "quizsection") {
+		activatequizsection();
+	}else{
+
+	}
+	if (activesection == "resultssection") {
+		activateresultssection();
+	}else{
+
+	}
+}
+retainsection();
+
+// end of retain sections
 
 
 btnpreviewquiz.addEventListener('click', () =>{
