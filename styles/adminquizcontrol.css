@@ -93,6 +93,9 @@
 .resultssection{
 	display: none;
 }
+.schedulesection{
+	display: none;
+}
 
 .select-unit{
 	background: #f1f1f1;
@@ -102,13 +105,23 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  margin-left: 16PX;
 
 }
-#btnviewresults{
+.time-selector{
+  background: #f1f1f1;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 16PX;
+}
+#btnviewresults, #sbmitschedule{
 	background: dodgerblue;
 
 }
-#btnviewresults:hover{
+#sbmitschedule,#btnviewresults:hover{
 	cursor: pointer;
 	
 	
@@ -121,6 +134,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  margin-left: 16PX;
 }
 
 /* results table */
@@ -153,6 +167,37 @@
   .resultstable tbody tr:nth-child(odd){background-color: #f2f2f2;}
   .resultstable tbody tr:hover{background-color: #ddd; }
 
+.schedular{
+  border: 1px solid dodgerblue;
+  margin-bottom: 16px;
+
+}
+ .schedular-header{
+  background: dodgerblue;
+  padding: 16px;
+  color: brown;
+  display: flex;
+  font-size: 32px;
+  align-items:center;
+  justify-content: center;
+ }
+
+ .sub-nav{
+  background: #00000000;
+  outline: none;
+  padding: 4px 2px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 0px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 16px;
+  cursor: pointer;
+ }
+.view-schedule , .add-schedule{
+ display: none;
+}
+ 
  /* on smalll screens */
 
 @media(max-width: 850px){

@@ -4,6 +4,11 @@ let schedulesection = document.querySelector('.schedulesection');
 let callquiz = document.getElementById('calladdquiz');
 let callresults = document.getElementById('callresults');
 let callschedule = document.getElementById('callschedule');
+let calladdschedule = document.getElementById('calladdschedule');
+let callviewchedule = document.getElementById('callviewschedule');
+let addeventsubsection = document.querySelector('.add-schedule');
+let vieweventsubsection = document.querySelector('.view-schedule');
+
 
 
 let btnpreviewquiz = document.getElementById('quizpreview');
@@ -70,6 +75,46 @@ function activateschedulessection() {
 callschedule.addEventListener('click' ,  () =>{
 	activateschedulessection()
 });
+
+// call sub-section
+function calladdeventsubcetion() {
+	// body...
+	vieweventsubsection.style.display = "none";
+	addeventsubsection.style.display = "block";
+	localStorage.setItem('activesubsection', "addevent");
+
+}
+ calladdschedule.addEventListener('click' , () =>{
+ 	calladdeventsubcetion();
+ })
+function callvieweventsubcetion() {
+	// body...
+	vieweventsubsection.style.display = "block";
+	addeventsubsection.style.display = "none";
+	localStorage.setItem('activesubsection', "viewevent");
+
+}
+callviewchedule.addEventListener('click' , () =>{
+ 	callvieweventsubcetion();
+ })
+
+function retainsubsection(){
+	let activesubsection = localStorage.getItem('activesubsection');
+	console.log(activesubsection);
+	if(activesubsection == "viewevent"){
+			
+			callvieweventsubcetion();
+	}else{
+
+	}
+	if(activesubsection == "addevent"){
+     calladdeventsubcetion();
+	}else{
+		
+	}
+}
+
+retainsubsection();
 
 function retainsection(){
 let 	activesection = localStorage.getItem('activesection');
