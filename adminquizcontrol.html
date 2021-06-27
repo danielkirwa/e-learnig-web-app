@@ -16,16 +16,26 @@
 	<center>
 		<div class="navbar">
 			<br>
+
 				<nav>
-		<a href="#" id="calladdquiz"><span><i class="fa fa-user iconz"></i></span> &nbsp;Add Quiz</a>
+					<select class="select-unit">
+				<option>Main menu</option>
+				<option>Quiz control</option>
+				<option>Users control</option>
+				<option>Unit control</option>
+				<option>Web content</option>
+			</select>
+			<span class="quiz-nav">
+				<a href="#" id="calladdquiz"><span><i class="fa fa-user iconz"></i></span> &nbsp;Add Quiz</a>
 		<a href="#" id="callresults"><span><i class="fa fa-home iconz"></i></span> &nbsp;Results</a>
 		<a href="#" id="callschedule"><span><i class="fa fa-calendar iconz"></i></span> &nbsp;Schedule</a>
 			
+			</span>
+		
 	</nav>
 		</div>
 	
 	</center>
-	
 </div>
 <br>
  <section class="addquizsection">
@@ -183,7 +193,24 @@
         	<button class="inputstyle" id="sbmitschedule">Submit Schedule</button>
         		</div>
         		<div class="view-schedule">
-        			view
+        			<div class="resultstable">
+     	<table>
+			<thead>
+				<tr>
+					<th>DAY</th>
+					<th>TIME </th>
+					<th>EVENT </th>
+					<th>VENU </th>
+					<th>STATUS </th>
+					<th>ACTION </th>
+				</tr>
+			</thead>
+			<tbody id="resultstablebody">
+				
+			</tbody>
+		</table>
+     </div>
+
         		</div>
 
         	
