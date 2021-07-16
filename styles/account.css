@@ -129,6 +129,7 @@
   display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    
 }
 .enrolled-activity{
 flex: 1 1 300px; /*  Stretching: */
@@ -137,6 +138,7 @@ flex: 1 1 300px; /*  Stretching: */
     border:2px solid grey;
     padding: 3px;
     border-radius: 10px;
+    background: white;
 }
 .activitydisplay{
  border-radius: 3px 25px ;
@@ -228,4 +230,30 @@ flex: 1 1 300px; /*  Stretching: */
    display: none;
 }
 
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-right: 16px solid green;
+  border-bottom: 16px solid red;
+  border-left: 16px solid pink;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  z-index: -1;
+  margin-top: 50px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 /*-------------------small screens ------------------*/

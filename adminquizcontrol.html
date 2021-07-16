@@ -20,10 +20,10 @@
 				<nav>
 					<select class="select-unit">
 				<option>Main menu</option>
-				<option>Quiz control</option>
-				<option>Users control</option>
-				<option>Unit control</option>
-				<option>Web content</option>
+				<option id="quizcontrolmenu">Quiz control</option>
+				<option id="usercontrolmenu">Users control</option>
+				<option id="unitcontrolmenu">Unit control</option>
+				<option id="contentcontrolmenu">Web content</option>
 			</select>
 			<span class="quiz-nav">
 				<a href="#" id="calladdquiz"><span><i class="fa fa-user iconz"></i></span> &nbsp;Add Quiz</a>
@@ -124,6 +124,7 @@
      </div>
      <div class="resultstable">
      	<table>
+
 			<thead>
 				<tr>
 					<th>CODE</th>
@@ -243,6 +244,7 @@
 		</center><br>
 	</div>
 </div>
+<script type="text/javascript" src="scripts/adminavigation.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>

@@ -39,9 +39,9 @@ btnsavequiz.addEventListener('click', () =>{
 
 // check and retain sections
 function activatequizsection() {
-		callschedule.className += "active";
+		callquiz.className += "active";
 		callresults.classList.remove('active');
-		callquiz.classList.remove('active');
+		callschedule.classList.remove('active');
 		quizsection.style.display = "block";
 		resultssection.style.display = "none";
 		schedulesection.style.display = "none";
