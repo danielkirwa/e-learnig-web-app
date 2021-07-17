@@ -121,12 +121,12 @@ let 	activesection = localStorage.getItem('activesection');
 	if (activesection == "quizsection") {
 		activatequizsection();
 	}else{
-
+		
 	}
 	if (activesection == "resultssection") {
 		activateresultssection();
 	}else{
-
+		
 	}
 	if (activesection == "schedulesection") {
 		activateschedulessection();
@@ -401,3 +401,27 @@ checkexamcode.addEventListener('keyup', () =>{
  })
 
 
+// admin fetch and retreve of data
+let btnstudentscore = document.getElementById('btnviewresults');
+
+btnstudentscore.addEventListener('click', () =>{
+ let resultstable = document.getElementById('resultstablebody');
+
+	 firebase.database().ref('studentcoursesjava/' ).on('value' ,function(snapshot){
+			 	
+			 	if (snapshot.exists()) {
+			 	let users = snapshot.val();
+			 resultstable.innerHTML += users.CourseScore;
+			 	}else{
+			 		//alert('no web');
+			 	}
+
+			 	
+			 }, (error) => {
+  if (error) {
+    // The write failed...
+  } else{
+  	
+  }
+})
+})

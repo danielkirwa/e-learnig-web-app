@@ -348,8 +348,6 @@ firebase.database().ref('studentusers/' + indexedEmail).set({
   })
 
 
-
-
     auth.onAuthStateChanged(function(user){
     	if(user){
     		var email = user.email;
