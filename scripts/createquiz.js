@@ -411,7 +411,7 @@ btnstudentscore.addEventListener('click', () =>{
 			 	
 			 	if (snapshot.exists()) {
 			 	let users = snapshot.val();
-			 resultstable.innerHTML += users.CourseScore;
+			 resultstable.innerHTML += users;
 			 	}else{
 			 		//alert('no web');
 			 	}
