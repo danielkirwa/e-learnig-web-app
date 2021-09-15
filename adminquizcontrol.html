@@ -19,7 +19,7 @@
 
 				<nav>
 					<select class="select-unit">
-				<option>Main menu</option>
+				<option id="admindashboard">Dashboard</option>
 				<option id="quizcontrolmenu">Quiz control</option>
 				<option id="usercontrolmenu">Users control</option>
 				<option id="unitcontrolmenu">Unit control</option>
@@ -241,7 +241,7 @@
  <section class="main-dashboard">
  	<div class="main-totalusers"> 
  		
- 		<table>
+ 		<table id="totalusers">
  			<tr>
  				<td>
  					<img src="images/group-icon.png" width="75px">
@@ -253,7 +253,7 @@
  		</table>
  	</div>
  	<div class="enrolls-holder">
- 		<div class="enroll-card">
+ 		<div class="enroll-card  hoverme" id="webenrolls">
  			
  		<table>
  			<tr>
@@ -266,7 +266,7 @@
  			</tr>
  		</table>
  		</div>
- 		<div class="enroll-card">
+ 		<div class="enroll-card hoverme" id="javaenrolls">
  			<table>
  			<tr>
  				<td>
@@ -278,7 +278,7 @@
  			</tr>
  		</table>
  		</div>
- 		<div class="enroll-card">
+ 		<div class="enroll-card hoverme" id="pythonenrolls">
  			<table>
  			<tr>
  				<td>
@@ -286,6 +286,18 @@
  				</td>
  				<td>
  					<label class="smallText dodgerblueText">PYTHON enrolls : <span>null</span></label>
+ 				</td>
+ 			</tr>
+ 		</table>
+ 		</div>
+ 		<div class="enroll-card hoverme" id="androidenrolls">
+ 			<table>
+ 			<tr>
+ 				<td>
+ 					<img src="images/android-icon.png" width="75px">
+ 				</td>
+ 				<td>
+ 					<label class="smallText dodgerblueText">ANDROID enrolls : <span>null</span></label>
  				</td>
  			</tr>
  		</table>
@@ -325,6 +337,19 @@
  		</table>
  	</div>
  	</div>
+ 	<!-- POP UP UNIT ANALYSIS -->
+ 	<div class="scroll-analysis">
+ 	<label class="mybutton" id="btncloseanalysis"><span>X</span></label>
+ 
+ 		<div class="analysis-holder">
+	popup analysis
+	</div>
+ 	
+	
+	
+</div>
+
+<!-- end of popup -->
  </section>
 
 <div class="footer">

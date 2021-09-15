@@ -289,8 +289,48 @@
   }
   .table-holder tbody tr:nth-child(odd){background-color: #f2f2f2;}
   .table-holder tbody tr:hover{background-color: #ddd; }
+.hoverme{
+ cursor: pointer;
+}
+
+/* enroll popup */
+
+.scroll-analysis{
+  overflow: hidden;
+  overflow-x: scroll;
+  background: teal;
+  padding: 8px;
+   text-align: center; 
+  position: absolute; 
+  top: 20%;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto;
+  display: none;
+
+}
+.analysis-holder{
+   background: #fff;
+   width: 80%;
+   min-width: 750px;
+  margin-left: 1%;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0.5rem 0 rgba(0 ,0,0,0.3);
+  padding: 8px;
+ margin-top: 20px;
+ margin-bottom: 20px;
+
+}
 
 
+.mybutton{
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+#btncloseanalysis{
+  float: right;
+}
  
  /* on smalll screens */
 

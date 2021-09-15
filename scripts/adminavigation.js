@@ -2,11 +2,15 @@ let contentcontrolmenu = document.getElementById('contentcontrolmenu');
 let quizcontrolmenu = document.getElementById('quizcontrolmenu');
 let usercontrolmenu = document.getElementById('usercontrolmenu');
 let unitcontrolmenu = document.getElementById('unitcontrolmenu');
+let dashboard = document.getElementById('admindashboard');
 let quiznav = document.querySelector('.quiz-nav');
 let usernav = document.querySelector('.user-nav');
 let unitnav = document.querySelector('.unit-nav');
 let contentnav = document.querySelector('.content-nav');
+let opendashboars = document.querySelector('.main-dashboard');
 let openmenu = 0;
+let popupanalysis = document.querySelector('.scroll-analysis');
+let closeanalysis = document.getElementById('btncloseanalysis');
 
 
 
@@ -16,18 +20,21 @@ function checkmenutoOpen(menunumber){
       usernav.style.display = "none";
       unitnav.style.display = "none";
       contentnav.style.display = "none";
+      opendashboars.style.display = "none";
       quiznav.style.display = "block";
        break;
        case 2:
        quiznav.style.display = "none";
        unitnav.style.display = "none";
       contentnav.style.display = "none";
+      opendashboars.style.display = "none";
        usernav.style.display = "block";
        break;
        case 3:
        quiznav.style.display = "none";
        usernav.style.display = "none";
        contentnav.style.display = "none";
+       opendashboars.style.display = "none";
        unitnav.style.display = "block";
       
        break;
@@ -35,13 +42,22 @@ function checkmenutoOpen(menunumber){
        quiznav.style.display = "none";
        usernav.style.display = "none";
        unitnav.style.display = "none";
+       opendashboars.style.display = "none";
        contentnav.style.display = "block";
+       break;
+         case 0:
+       quiznav.style.display = "none";
+       usernav.style.display = "none";
+       unitnav.style.display = "none";
+       contentnav.style.display = "none";
+       opendashboars.style.display = "block";
        break;
        default:
        quiznav.style.display = "none";
        usernav.style.display = "none";
        unitnav.style.display = "none";
        contentnav.style.display = "none";
+       opendashboars.style.display = "block";
 
 	}
 
@@ -91,4 +107,24 @@ contentcontrolmenu.addEventListener('click', ()=>{
     resultssection.style.display = "none";
     schedulesection.style.display = "none";
 	 checkmenutoOpen(4)
+})
+dashboard.addEventListener('click', ()=>{
+   openmenu = 0;
+   localStorage.setItem('OpenMenu', 0);
+   localStorage.setItem('activesection', null);
+   localStorage.setItem('activesubsection', null);
+   quizsection.style.display = "none";
+    resultssection.style.display = "none";
+    schedulesection.style.display = "none";
+   checkmenutoOpen(0)
+})
+
+// pop up analysis
+
+let popjava = document.getElementById('javaenrolls')
+popjava.addEventListener('click' , ()=>{
+  popupanalysis.style.display = "block";
+})
+closeanalysis.addEventListener('click' , () =>{
+  popupanalysis.style.display = "none";
 })
