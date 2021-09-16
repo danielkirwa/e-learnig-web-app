@@ -11,6 +11,9 @@ let opendashboars = document.querySelector('.main-dashboard');
 let openmenu = 0;
 let popupanalysis = document.querySelector('.scroll-analysis');
 let closeanalysis = document.getElementById('btncloseanalysis');
+let blurbody = document.querySelector('.mybody');
+let blurdashboard = document.querySelector('.main-dashboard');
+let analyticTitel = document.querySelector('.analytic-titel');
 
 
 
@@ -123,8 +126,23 @@ dashboard.addEventListener('click', ()=>{
 
 let popjava = document.getElementById('javaenrolls')
 popjava.addEventListener('click' , ()=>{
-  popupanalysis.style.display = "block";
+  openanalytic("JAVA ");
+ 
 })
 closeanalysis.addEventListener('click' , () =>{
-  popupanalysis.style.display = "none";
+ closeanalytic();
 })
+
+function openanalytic(unit) {
+  // body...
+  popupanalysis.style.display = "block";
+  blurbody.style.opacity = "0.4";
+  blurdashboard.style.opacity = "0.4";
+  analyticTitel.innerHTML = unit + "Analysis";
+}
+function closeanalytic() {
+  // body...
+  popupanalysis.style.display = "none";
+  blurbody.style.opacity = "1";
+  blurdashboard.style.opacity = "1";
+}
