@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="styles/banner.css">
 	<link rel="stylesheet" type="text/css" href="styles/adminquizcontrol.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body style="background: #f1f1f1;" >
 <div class="bannerholder mybody">
@@ -345,11 +346,27 @@
  		<div class="analysis-holder">
 	<label class="mybutton" id="btncloseanalysis"><span>X</span></label>
 	<label class="analytic-titel">null</label>
+	<hr>
+	<div class="report-holder">
+ 		<div class="report-card">
+ 			
+ 	 <label>TOTAL ENROLLS : <span>null</span></label><br>
+ 	 <canvas id="pieChartEnrolls" width="50%"></canvas>
+ 		</div>
+ 		<div class="report-card-long">
+ 			
+ 	 <label>RESULTS </label><br>
+ 	 <canvas id="barGraphResults" width="50%"></canvas>
+ 		</div>
 	</div>
+	
+	</div>
+</div>
 
 </div>
 
 <!-- end of popup -->
+
 <div class="footer">
 	<div class="rightfooter">
 		<center>
@@ -374,6 +391,7 @@
 		</center><br>
 	</div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script type="text/javascript" src="scripts/adminavigation.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>

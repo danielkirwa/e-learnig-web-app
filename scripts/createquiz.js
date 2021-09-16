@@ -425,3 +425,62 @@ btnstudentscore.addEventListener('click', () =>{
   }
 })
 })
+
+// analysis 
+function createPieChart() {
+	// body...
+var chartLabels = ["Expert", "Intermediate", "Beginner"];
+var chartValues = [55, 49, 44];
+var chartColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797"
+];
+
+new Chart("pieChartEnrolls", {
+  type: "pie",
+  data: {
+    labels: chartLabels,
+    datasets: [{
+      backgroundColor: chartColors,
+      data: chartValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "TOTAL ENROLLS"
+    }
+  }
+});
+}
+
+function createBarGraph() {
+	// body...
+var chartLabels = ["Expert", "Intermediate", "Beginner","null"];
+var chartValues = [55, 49, 44,0];
+var chartColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#fff"
+];
+
+new Chart("barGraphResults", {
+  type: "bar",
+  data: {
+    labels: chartLabels,
+    datasets: [{
+      backgroundColor: chartColors,
+      data: chartValues
+    }]
+  },
+  options: {
+  	legend: {display: false},
+    title: {
+      display: true,
+      text: "AVARAGE SCORES"
+    }
+  }
+});
+}

@@ -127,7 +127,8 @@ dashboard.addEventListener('click', ()=>{
 let popjava = document.getElementById('javaenrolls')
 popjava.addEventListener('click' , ()=>{
   openanalytic("JAVA ");
- 
+ createPieChart();
+ createBarGraph();
 })
 closeanalysis.addEventListener('click' , () =>{
  closeanalytic();
