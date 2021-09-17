@@ -129,6 +129,28 @@ popjava.addEventListener('click' , ()=>{
   openanalytic("JAVA ");
  createPieChart();
  createBarGraph();
+ createBarGraphrReport();
+})
+let popandroid = document.getElementById('androidenrolls')
+popandroid.addEventListener('click' , ()=>{
+  openanalytic("ANDROID ");
+ createPieChart();
+ createBarGraph();
+ createBarGraphrReport();
+})
+let popweb = document.getElementById('webenrolls')
+popweb.addEventListener('click' , ()=>{
+  openanalytic("WEB ");
+ createPieChart();
+ createBarGraph();
+ createBarGraphrReport();
+})
+let poppython = document.getElementById('pythonenrolls')
+poppython.addEventListener('click' , ()=>{
+  openanalytic("PYTHON ");
+ createPieChart();
+ createBarGraph();
+ createBarGraphrReport();
 })
 closeanalysis.addEventListener('click' , () =>{
  closeanalytic();

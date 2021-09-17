@@ -264,6 +264,12 @@
   box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.3);
   margin: 5px;
 }
+.report-card-longer{
+  flex: 1 1  500px;
+  flex: 0 1 500px;
+  box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.3);
+  margin: 5px;
+}
 .scroll-table{
   overflow: hidden;
   overflow-x: scroll;

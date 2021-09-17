@@ -484,3 +484,36 @@ new Chart("barGraphResults", {
   }
 });
 }
+
+function createBarGraphrReport() {
+	// body...
+var chartLabels = ["Active", "Completed", "Inactive","Fail"," "];
+var chartValues = [55, 49, 44,12,0];
+var chartColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#233637",
+  "#fff"
+];
+
+new Chart("barGraphUnitReport", {
+  type: "bar",
+  data: {
+    labels: chartLabels,
+    datasets: [{
+      backgroundColor: chartColors,
+      data: chartValues
+    }]
+  },
+  options: {
+  	legend: {display: false},
+    title: {
+      display: true,
+      text: "GENERAL TRENDS"
+    }
+  }
+});
+}
+
+// fetch data for analysis
