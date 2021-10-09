@@ -96,7 +96,7 @@ quizcontrolmenu.addEventListener('click', ()=>{
 	 localStorage.setItem('OpenMenu', 1);
    localStorage.setItem('activesection', null);
    localStorage.setItem('activesubsection', null);
-   quizsection.style.display = "none";
+   quizsection.style.display = "block";
       resultssection.style.display = "none";
       schedulesection.style.display = "none";
 	 checkmenutoOpen(1)
