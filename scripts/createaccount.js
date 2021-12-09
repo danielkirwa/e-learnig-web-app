@@ -330,21 +330,6 @@ firebase.database().ref('studentusers/' + indexedEmail).set({
     btnsigninnewuser.innerHTML = "Log In"
   });
 
-
-
-    	/* auth.signInWithEmailAndPassword(loginusername,loginpassword)
-    	 .then((user) => {
-    // Signed in
-    alert('loged in');
-   // window.location.href='quizapp.html';
-    // ...
-  })
-  .catch((error) => {
-   console.log(error.code);
-    alert(error.message);
-  });
-    	*/
-
   })
 
 
