@@ -248,7 +248,7 @@
  					<img src="images/Group-icon.png" width="75px">
  				</td>
  				<td>
- 					<label class="largeText dodgerblueText">TOTAL USERS : <span>null</span></label>
+ 					<label class="largeText dodgerblueText">TOTAL USERS : <span id="labeltotalusers">null</span></label>
  				</td>
  			</tr>
  		</table>
@@ -309,7 +309,7 @@
  		<div class="table-caption">
  			<label class="largeText brownText">Unenrolled students : <span>null</span></label>
  		</div>
- 		<table>
+ 		<table id="tableusers">
  			<thead>
  				<tr>
  					<th>Student Name</th>
@@ -319,21 +319,8 @@
  					<th>Action</th>
  				</tr>
  			</thead>
- 			<tbody>
- 				<tr>
- 					<td>Student Name</td>
- 					<td>Enroll Date</td>
- 					<td>Intrest</td>
- 					<td>Student Email</td>
- 					<td>Action</td>
- 				</tr>
- 				<tr>
- 					<td>Student Name</td>
- 					<td>Enroll Date</td>
- 					<td>Intrest</td>
- 					<td>Student Email</td>
- 					<td>Action</td>
- 				</tr>
+ 			<tbody id="alluserstable">
+ 				
  			</tbody>
  		</table>
  	</div>
@@ -403,5 +390,6 @@
 <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
 <script type="text/javascript" src="scripts/frconelearning.js"></script>
 <script type="text/javascript" src="scripts/createquiz.js"></script>
+<script type="text/javascript" src="scripts/allusers.js"></script>
 </body>
 </html>

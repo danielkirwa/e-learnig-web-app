@@ -1,6 +1,5 @@
 
 // global variable 
-
 let tbody = document.getElementById('resultstablebody');
 let callpopupmenu = document.querySelector('.profileicon');
 let usernamedisplay = document.getElementById('logedinusername');
