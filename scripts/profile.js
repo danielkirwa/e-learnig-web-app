@@ -1,4 +1,4 @@
- 	let tbody = document.getElementById('resultstablebody');
+let tbody = document.getElementById('resultstablebody');
 let callpopupmenu = document.querySelector('.profileicon');
 let usernamedisplay = document.getElementById('logedinusername');
 let btnlogout = document.getElementById('btnlogout');

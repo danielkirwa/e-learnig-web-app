@@ -1,5 +1,4 @@
 
-
 // global variable 
 let usernamedisplay = document.getElementById('logedinusername');
 let btnaddactivity = document.getElementById('addactivity');
@@ -21,13 +20,11 @@ let enrollscore = 0;
 
 
 
-
-btncloseenrollpopup.addEventListener('click', () => {
+	btncloseenrollpopup.addEventListener('click', () => {
 	
 	enrollform.style.display ="none";
 	blurbody.style.opacity = "1";
 })
-
 
 
 
@@ -50,7 +47,9 @@ callpopupmenu.addEventListener('click' , () =>{
 
 })
 
+ if (btnaddactivity == null) {
 
+ }else{
 btnaddactivity.addEventListener('click', () => {
 	enrollform.style.display ="block";
 	blurbody.style.opacity = "0.4";
@@ -90,7 +89,7 @@ document.getElementById("coursetoenroll").options[0].selected = true;
 	console.log(indexedEmail);
 	
 })
-
+}
 
 // select any enrolled courses
 /*console.log(indexedEmail);
@@ -239,7 +238,6 @@ btnsubmitenroll.addEventListener('click' , ()  => {
 
 	 	
 })
-
 // retain course display 
 
 function retaincoursedisplay() {
